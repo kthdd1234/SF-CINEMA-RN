@@ -6,7 +6,6 @@ import {
   FlatList,
   View,
 } from 'react-native';
-
 import {
   AntDesign,
   Entypo,
@@ -28,7 +27,7 @@ const Item = ({ renderMovies, navigation }) => {
   );
 };
 
-const Main = ({ navigation }) => {
+const Home = ({ navigation }) => {
   const renderItem = ({ item }) => {
     return <Item renderMovies={item} navigation={navigation} />;
   };
@@ -80,7 +79,7 @@ const Main = ({ navigation }) => {
   ];
 
   useEffect(() => {
-    console.log('Main useEffect!!');
+    console.log('useEffect!!');
 
     const getServerData = async () => {
       const count = 8;
@@ -133,4 +132,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default Main;
+export default Home;

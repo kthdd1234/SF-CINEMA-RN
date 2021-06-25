@@ -6,12 +6,11 @@
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "splash": {
-      "image": "./SFCINEMA.png",
+      "image": "./TabScreens/Home/Image/SFCINEMA.png",
       "resizeMode": "contain",
       "backgroundColor": "#000000",
       "width": "200px",
       "borderRadius": "300px"
-      
     },
     "updates": {
       "fallbackToCacheTimeout": 0

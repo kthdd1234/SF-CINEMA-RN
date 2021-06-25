@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import { setProfile } from '../actions';
-import MovieDetails from '../components/Home/MovieDetails';
+import MovieDetails from '../TabScreens/Home/MovieDetails';
 
 const mapReduxStateToReactProps = ({ userReducer }) => {
   return {

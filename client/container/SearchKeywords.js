@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import SearchKeywords from '../components/Search/SearchKeywords';
+import SearchKeywords from '../TabScreens/Search/SearchKeywords';
 
 const mapReduxStateToReactProps = ({ searchReducer }) => {
   return {

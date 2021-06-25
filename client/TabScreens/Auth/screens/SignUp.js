@@ -1,19 +1,8 @@
 import React, { useState, useCallback } from 'react';
 import { StyleSheet, View, Alert } from 'react-native';
-import { Input, Icon, CheckBox, Button } from 'react-native-elements';
-import { requestSignUp } from '../../requests';
-
-const UserIcon = () => {
-  return <Icon name='adduser' type='antdesign' color='gray' />;
-};
-
-const unlockIcon = () => {
-  return <Icon name='unlock' type='antdesign' color='gray' />;
-};
-
-const lockIcon = () => {
-  return <Icon name='lock1' type='antdesign' color='gray' />;
-};
+import { Input, Button } from 'react-native-elements';
+import { requestSignUp } from '../../../requests';
+import { UserIcon, LockIcon, UnlockIcon } from "../icons";
 
 function SignUp({ navigation }) {
   const [newId, setNewId] = useState('');
@@ -132,7 +121,7 @@ function SignUp({ navigation }) {
         label='비밀번호'
         labelStyle={styles.label}
         placeholder='비밀번호를 입력해주세요.'
-        leftIcon={unlockIcon}
+        leftIcon={UnlockIcon}
         secureTextEntry={true}
         selectionColor='red'
         inputContainerStyle={styles.inputContainer}
@@ -144,7 +133,7 @@ function SignUp({ navigation }) {
         label='비밀번호 확인'
         labelStyle={styles.label}
         placeholder='비밀번호를 한번 더 입력해주세요.'
-        leftIcon={lockIcon}
+        leftIcon={LockIcon}
         secureTextEntry={true}
         selectionColor='red'
         inputContainerStyle={styles.inputContainer}

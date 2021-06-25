@@ -4,11 +4,11 @@ import { Provider } from 'react-redux';
 import { createStore } from 'redux';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
-import BottomTabs from './container/BottomTabs';
+import TabScreens from './container/TabScreens';
 import MovieDetails from './container/MovieDetails';
-import MovieCollection from './components/Home/MovieCollection';
-import Trailer from './components/Home/Trailer';
-import SignUp from './components/Auth/SignUp';
+import MovieCollection from './TabScreens/Home/MovieCollection';
+import Trailer from './TabScreens/Home/Trailer';
+import SignUp from './TabScreens/Auth/screens/SignUp';
 import reducer from './reducer';
 
 const Stack = createStackNavigator();
@@ -23,10 +23,10 @@ const App = () => {
     <Provider store={store}>
       <NavigationContainer>
         <StatusBar translucent backgroundColor='transparent' />
-        <Stack.Navigator initialRouteName='bottomTabs'>
+        <Stack.Navigator initialRouteName='TabScreens'>
           <Stack.Screen
-            name='bottomTabs'
-            component={BottomTabs}
+            name='TabScreens'
+            component={TabScreens}
             options={{
               headerShown: false,
             }}
@@ -34,17 +34,7 @@ const App = () => {
           <Stack.Screen
             name='MovieDetails'
             component={MovieDetails}
-            options={({ route }) => ({
-              // title: route.params.headerTitle,
-              // headerStyle: {
-              //   backgroundColor: 'black',
-              // },
-              // headerTintColor: '#fff',
-              // headerTitleStyle: {
-              //   fontWeight: 'bold',
-              // },
-              headerShown: false,
-            })}
+            options={({ route }) => ({ headerShown: false })}
           />
           <Stack.Screen
             name='MovieCollection'

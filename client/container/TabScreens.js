@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import BottomTabs from '../BottomTabs';
+import TabScreens from '../TabScreens/TabScreens';
 
 const mapReduxStateToReactProps = ({ userReducer }) => {
   return {
@@ -7,4 +7,4 @@ const mapReduxStateToReactProps = ({ userReducer }) => {
   };
 };
 
-export default connect(mapReduxStateToReactProps)(BottomTabs);
+export default connect(mapReduxStateToReactProps)(TabScreens);

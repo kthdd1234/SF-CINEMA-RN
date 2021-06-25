@@ -1,21 +1,16 @@
 import React from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
-import Main from './Main';
-import LogoTitle from '../../LogoTitle';
+import Main from './Home';
 
 const Stack = createStackNavigator();
 
-const Home = ({ navigation }) => {
+const HomeTab = ({}) => {
   return (
     <Stack.Navigator initialRouteName='Main'>
       <Stack.Screen
         name='Main'
         component={Main}
         options={{
-          // headerTitle: (props) => <LogoTitle {...props} />,
-          // headerStyle: {
-          //   backgroundColor: 'black',
-          // },
           headerShown: false,
         }}
       />
@@ -23,4 +18,4 @@ const Home = ({ navigation }) => {
   );
 };
 
-export default Home;
+export default HomeTab;

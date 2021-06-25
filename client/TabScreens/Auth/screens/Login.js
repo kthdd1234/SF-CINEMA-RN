@@ -1,24 +1,9 @@
 import React, { useCallback, useState } from 'react';
 import { Alert } from 'react-native';
 import { View, StyleSheet } from 'react-native';
-import { Input, Icon, Button } from 'react-native-elements';
-import { requestLogin, userProfile } from '../../requests';
-
-const UserIcon = () => {
-  return <Icon name='user' type='antdesign' color='gray' />;
-};
-
-const lockIcon = () => {
-  return <Icon name='lock1' type='antdesign' color='gray' />;
-};
-
-const SaveLoginIcon = () => {
-  return <Icon name='pluscircleo' type='antdesign' color='gray' />;
-};
-
-const CheckIcon = () => {
-  return <Icon name='check' type='antdesign' color='tomato' />;
-};
+import { Input, Button } from 'react-native-elements';
+import { requestLogin, userProfile } from '../../../requests';
+import { UserIcon, LockIcon, SaveLoginIcon, CheckIcon } from "../icons";
 
 const InputId = ({ errId, verifyInputUserId }) => {
   return (
@@ -44,7 +29,7 @@ const InputPassword = ({ errPassword, verifyInputUserPassword }) => {
       label='비밀번호'
       labelStyle={styles.label}
       placeholder='비밀번호를 입력해주세요.'
-      leftIcon={lockIcon}
+      leftIcon={LockIcon}
       leftIconContainerStyle={styles.leftIcon}
       secureTextEntry={true}
       selectionColor='red'

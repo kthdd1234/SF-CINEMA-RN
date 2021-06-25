@@ -1,7 +1,7 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet } from 'react-native';
 import { createStackNavigator } from '@react-navigation/stack';
-import { Button, Icon } from 'react-native-elements';
+import { Button } from 'react-native-elements';
 import MyPage from './MyPage';
 
 const Stack = createStackNavigator();

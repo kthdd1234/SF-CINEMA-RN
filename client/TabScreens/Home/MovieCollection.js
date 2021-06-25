@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { StyleSheet, ScrollView, View, FlatList } from 'react-native';
+import { StyleSheet, View, FlatList } from 'react-native';
 import MovieList from './MovieList';
 
 const MovieCollection = ({ route, navigation }) => {

@@ -1,19 +1,28 @@
-export const SET_SEARCH_RESULT = 'SET_SEARCH_RESULT';
-export const SET_SEARCHING = 'SET_SEARCHING';
+const SET_ISLOGIN = 'SET_ISLOGIN';
+const SET_PROFILE = 'SET_PROFILE';
+const SET_SEARCH_RESULT = 'SET_SEARCH_RESULT';
+const SET_SEARCHING = 'SET_SEARCHING';
 
-export const SET_PROFILE = 'SET_PROFILE';
+const setIsLogin = (isLogin) => ({
+  type: SET_ISLOGIN,
+  isLogin: isLogin,
+});
 
-export const setSearchResult = (searchResult) => ({
+const setProfile = (profile) => ({
+  type: SET_PROFILE,
+  profile: profile,
+});
+
+const setSearchResult = (searchResult) => ({
   type: SET_SEARCH_RESULT,
   searchResult: searchResult,
 });
 
-export const setSearching = (searching) => ({
+const setSearching = (searching) => ({
   type: SET_SEARCHING,
   searching: searching,
 });
 
-export const setProfile = (profile) => ({
-  type: SET_PROFILE,
-  profile: profile,
-});
+export { SET_ISLOGIN, SET_PROFILE, SET_SEARCHING, SET_SEARCH_RESULT, setIsLogin, setProfile, setSearchResult, setSearching }
+
+

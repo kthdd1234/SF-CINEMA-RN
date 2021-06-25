@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import { setProfile } from '../actions';
-import Login from '../components/Auth/Login';
+import Login from '../TabScreens/Auth/screens/Login';
 
 const mapReduxDispatchToReactProps = (dispatch) => {
   return {

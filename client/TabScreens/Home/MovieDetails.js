@@ -5,8 +5,6 @@ import {
   Text,
   Image,
   Dimensions,
-  ScrollView,
-  TouchableOpacity,
   Alert,
 } from 'react-native';
 import { Divider, Button } from 'react-native-elements';
@@ -20,7 +18,7 @@ import {
   likeCancel,
 } from '../../requests';
 import { LinearGradient } from 'expo-linear-gradient';
-import MovieList from '../Home/MovieList';
+import MovieList from './MovieList';
 import Trailer from './Trailer';
 import { FlatList } from 'react-native-gesture-handler';
 
