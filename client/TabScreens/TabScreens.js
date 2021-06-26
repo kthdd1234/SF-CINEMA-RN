@@ -17,7 +17,20 @@ const icons = {
   마이페이지: 'user',
 }
 
-const TabScreens = ({ profile }) => {
+const tabBarOptions = {
+  activeTintColor: 'tomato',
+  inactiveTintColor: 'gray',
+  style: {
+    backgroundColor: 'black',
+    borderTopWidth: 0,
+  },
+}
+
+const tabScreens = [
+  {},{},{},{},{}
+]
+
+const TabScreens = ({ isLogin }) => {
   return (
     <Tab.Navigator
       initialRouteName='Home'
@@ -28,19 +41,12 @@ const TabScreens = ({ profile }) => {
           );
         },
       })}
-      tabBarOptions={{
-        activeTintColor: 'tomato',
-        inactiveTintColor: 'gray',
-        style: {
-          backgroundColor: 'black',
-          borderTopWidth: 0,
-        },
-      }}
+      tabBarOptions={tabBarOptions}
     >
       <Tab.Screen name='홈' component={Home} />
       <Tab.Screen name='카테고리' component={Category} />
       <Tab.Screen name='검색' component={Search} />
-      {Object.keys(profile).length === 0 ? (
+      {isLogin ? (
         <Tab.Screen name='로그인/가입' component={Auth} />
       ) : (
         <Tab.Screen name='마이페이지' component={User} />
