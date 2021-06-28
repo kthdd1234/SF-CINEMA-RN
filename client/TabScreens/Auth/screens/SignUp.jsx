@@ -2,7 +2,7 @@ import React, { useState, useCallback } from 'react';
 import { StyleSheet, View, Alert } from 'react-native';
 import { Input, Button } from 'react-native-elements';
 import { requestSignUp } from '../../../requests';
-import { UserIcon, LockIcon, UnlockIcon } from "../icons";
+import { UserIcon, LockIcon, UnlockIcon } from '../icons';
 
 function SignUp({ navigation }) {
   const [newId, setNewId] = useState('');
@@ -143,9 +143,9 @@ function SignUp({ navigation }) {
       />
 
       <Button
-        buttonStyle={styles.buttonWrap}
         title='회원가입 하기'
         titleStyle={styles.buttonText}
+        buttonStyle={styles.buttonWrap}
         onPress={hadleSignUpToggle}
       />
     </View>
@@ -156,10 +156,9 @@ const styles = StyleSheet.create({
   signUpContainer: {
     flex: 1,
     justifyContent: 'center',
-    backgroundColor: 'rgb(20, 21, 23)',
-    paddingTop: 10,
     paddingLeft: 10,
     paddingRight: 10,
+    backgroundColor: 'rgb(20, 21, 23)',
   },
   label: {
     color: 'tomato',
@@ -172,13 +171,10 @@ const styles = StyleSheet.create({
     color: 'white',
     paddingLeft: 5,
   },
-
   buttonWrap: {
-    backgroundColor: 'red',
-    marginBottom: 5,
     marginLeft: 10,
     marginRight: 10,
-    height: 50,
+    backgroundColor: 'red',
   },
   buttonText: {
     color: 'whitesmoke',

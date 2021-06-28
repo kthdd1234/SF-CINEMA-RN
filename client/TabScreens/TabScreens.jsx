@@ -15,7 +15,7 @@ const icons = {
   검색: 'search1',
   '로그인/가입': 'adduser',
   마이페이지: 'user',
-}
+};
 
 const tabBarOptions = {
   activeTintColor: 'tomato',
@@ -24,13 +24,24 @@ const tabBarOptions = {
     backgroundColor: 'black',
     borderTopWidth: 0,
   },
-}
-
-const tabScreens = [
-  {},{},{},{},{}
-]
+};
 
 const TabScreens = ({ isLogin }) => {
+  const defaultScreens = [
+    {
+      name: '홈',
+      component: Home,
+    },
+    {
+      name: '카테고리',
+      component: Category,
+    },
+    {
+      name: '검색',
+      component: Search,
+    },
+  ];
+
   return (
     <Tab.Navigator
       initialRouteName='Home'
@@ -43,10 +54,14 @@ const TabScreens = ({ isLogin }) => {
       })}
       tabBarOptions={tabBarOptions}
     >
-      <Tab.Screen name='홈' component={Home} />
-      <Tab.Screen name='카테고리' component={Category} />
-      <Tab.Screen name='검색' component={Search} />
-      {isLogin ? (
+      {defaultScreens.map((screen, screenIdx) => (
+        <Tab.Screen
+          key={screenIdx}
+          name={screen.name}
+          component={screen.component}
+        />
+      ))}
+      {!isLogin ? (
         <Tab.Screen name='로그인/가입' component={Auth} />
       ) : (
         <Tab.Screen name='마이페이지' component={User} />
