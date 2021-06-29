@@ -26,22 +26,22 @@ const tabBarOptions = {
   },
 };
 
-const BottomTab = ({ isLogin }) => {
-  const defaultScreens = [
-    {
-      name: '홈',
-      component: Home,
-    },
-    {
-      name: '카테고리',
-      component: Category,
-    },
-    {
-      name: '검색',
-      component: Search,
-    },
-  ];
+const defaultScreens = [
+  {
+    name: '홈',
+    component: Home,
+  },
+  {
+    name: '카테고리',
+    component: Category,
+  },
+  {
+    name: '검색',
+    component: Search,
+  },
+];
 
+const BottomTab = ({ isLogin }) => {
   return (
     <Tab.Navigator
       initialRouteName='Home'
