@@ -4,12 +4,12 @@ import { Provider } from 'react-redux';
 import { createStore } from 'redux';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
-import BottomTab from './container/BottomTab';
-import Movie from './container/Movie';
-import Collection from './component/Home/Collection';
-import Trailer from './component/Home/component/Trailer';
-import SignUp from './component/Auth/screen/SignUp';
-import reducer from './reducer';
+import BottomTab from './containers/BottomTab';
+import Movie from './containers/Movie';
+import Collection from './components/Home/Collection';
+import Trailer from './components/Home/component/Trailer';
+import SignUp from './components/Auth/screen/SignUp';
+import reducer from './reducers';
 
 const Stack = createStackNavigator();
 

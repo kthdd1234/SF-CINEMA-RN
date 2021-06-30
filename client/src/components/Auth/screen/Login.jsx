@@ -1,6 +1,6 @@
 import React, { useCallback, useState } from 'react';
 import { Alert } from 'react-native';
-import { InputField, KeepLogined, Btn } from './component';
+import { InputField, KeepLogined, Btn } from '../component';
 import { requestLogin, userProfile } from '../../../requests';
 import { UserIcon, LockIcon } from '../icon';
 import styled from 'styled-components/native';

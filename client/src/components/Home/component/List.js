@@ -1,6 +1,6 @@
 import React from 'react';
 import { StyleSheet, View, FlatList } from 'react-native';
-import Content from '../component/Content';
+import Content from './Content';
 
 const List = ({ movieList }) => {
   const RenderItem = ({ item }) => {

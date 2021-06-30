@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { StyleSheet } from 'react-native';
 import { Button } from 'react-native-elements';
-import { SaveLoginIcon, CheckIcon } from '../../icon';
+import { SaveLoginIcon, CheckIcon } from '../icon';
 
 const KeepLogined = () => {
   const [checked, setChecked] = useState(false);
