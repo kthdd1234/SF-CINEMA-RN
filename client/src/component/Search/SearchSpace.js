@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { StyleSheet, ActivityIndicator, View, Text } from 'react-native';
 import SearchKeywords from '../../container/SearchKeywords';
 import { AntDesign } from 'react-native-vector-icons';

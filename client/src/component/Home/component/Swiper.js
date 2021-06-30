@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useCallback } from 'react';
 import {
   StyleSheet,
   Image,
@@ -7,7 +7,7 @@ import {
   Text,
   TouchableOpacity,
 } from 'react-native';
-import Swiper from 'react-native-swiper';
+import SwiperList from 'react-native-swiper';
 import { LinearGradient } from 'expo-linear-gradient';
 import {
   upcomingMovies,
@@ -15,7 +15,8 @@ import {
   highlyRatedMovies,
   genres,
   contents,
-} from '../../requests';
+} from '../../../requests';
+import { useNavigation } from '@react-navigation/native';
 
 const { width } = Dimensions.get('window');
 
@@ -70,14 +71,15 @@ const swiperMovieList = [
   },
 ];
 
-const SwiperList = ({ navigation }) => {
+const Swiper = () => {
   const count = 10;
+  const navigation = useNavigation();
 
   const onPressSwiperImage = useCallback((mainSub, method) => {
     const getServerData = async () => {
       if (mainSub === '원더우먼 1984') {
         const movie = await method(245);
-        navigation.push('MovieDetails', {
+        navigation.push('Movie', {
           headerTitle: mainSub,
           movie: movie,
         });
@@ -106,7 +108,7 @@ const SwiperList = ({ navigation }) => {
 
   return (
     <View>
-      <Swiper
+      <SwiperList
         style={styles.wrapper}
         showsButtons={false}
         containerStyle={styles.swiperContainer}
@@ -139,7 +141,7 @@ const SwiperList = ({ navigation }) => {
             </View>
           </TouchableOpacity>
         ))}
-      </Swiper>
+      </SwiperList>
     </View>
   );
 };
@@ -191,4 +193,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default SwiperList;
+export default Swiper;

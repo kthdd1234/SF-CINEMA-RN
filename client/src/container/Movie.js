@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import { setProfile } from '../actions';
-import MovieDetails from '../component/Home/MovieDetails';
+import Movie from '../component/Home/screen/Movie';
 
 const mapReduxStateToReactProps = ({ userReducer }) => {
   return {
@@ -19,4 +19,4 @@ const mapReduxDispatchToReactProps = (dispatch) => {
 export default connect(
   mapReduxStateToReactProps,
   mapReduxDispatchToReactProps
-)(MovieDetails);
+)(Movie);

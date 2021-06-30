@@ -101,12 +101,11 @@ export const highlyRatedMovies = async (count) => {
 };
 
 /* 장르(특징) */
-export const genres = async (genre, count) => {
+export const genres = async (genre) => {
   try {
     const { data } = await baseURL.get('/genre', {
       params: {
         genre: genre,
-        count: count,
       },
     });
     return data;

@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { View, Text, StyleSheet, ActivityIndicator } from 'react-native';
 import { Button } from 'react-native-elements';
-import MovieList from './MovieList';
+import List from './List';
 
 const Viewmore = ({ setViewmore }) => {
   return (
@@ -19,7 +19,7 @@ const Viewmore = ({ setViewmore }) => {
   );
 };
 
-const MovieListTitle = ({ icon, movieListTitle }) => {
+const ListTitle = ({ icon, movieListTitle }) => {
   return (
     <Text style={styles.movieListTitle}>
       {icon} {movieListTitle}
@@ -27,7 +27,7 @@ const MovieListTitle = ({ icon, movieListTitle }) => {
   );
 };
 
-const MovieListContainer = ({ renderMovies, navigation }) => {
+const MovieListContainer = ({ renderMovies }) => {
   const [viewmore, setViewmore] = useState(false);
   const { movieListTitle, icon, movieList } = renderMovies;
 
@@ -39,11 +39,8 @@ const MovieListContainer = ({ renderMovies, navigation }) => {
         </View>
       ) : (
         <View style={styles.listContainer}>
-          <MovieListTitle movieListTitle={movieListTitle} icon={icon} />
-          <MovieList
-            movieList={viewmore ? movieList : movieList.slice(0, 4)}
-            navigation={navigation}
-          />
+          <ListTitle movieListTitle={movieListTitle} icon={icon} />
+          <List movieList={viewmore ? movieList : movieList.slice(0, 4)} />
           {viewmore ? null : <Viewmore setViewmore={setViewmore} />}
         </View>
       )}

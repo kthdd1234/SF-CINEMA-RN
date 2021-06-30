@@ -1,5 +1,5 @@
-import React, { useState, useEffect, useCallback, useRef } from 'react';
-import { View, Dimensions, Alert, StatusBar, Text } from 'react-native';
+import React from 'react';
+import { View, Dimensions, StatusBar } from 'react-native';
 import YoutubePlayer from 'react-native-youtube-iframe';
 import { heightPercentageToDP as hp } from 'react-native-responsive-screen';
 

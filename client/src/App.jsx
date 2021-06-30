@@ -5,9 +5,9 @@ import { createStore } from 'redux';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import BottomTab from './container/BottomTab';
-import MovieDetails from './container/MovieDetails';
-import MovieCollection from './component/Home/MovieCollection';
-import Trailer from './component/Home/Trailer';
+import Movie from './container/Movie';
+import Collection from './component/Home/Collection';
+import Trailer from './component/Home/component/Trailer';
 import SignUp from './component/Auth/screen/SignUp';
 import reducer from './reducer';
 
@@ -31,8 +31,8 @@ const headerStyle = {
 
 const stackScreens = [
   { name: 'BottomTab', component: BottomTab, options: headerShown },
-  { name: 'MovieDetails', component: MovieDetails, options: headerShown },
-  { name: 'MovieCollection', component: MovieCollection, options: headerStyle },
+  { name: 'Movie', component: Movie, options: headerShown },
+  { name: 'Collection', component: Collection, options: headerStyle },
   { name: 'Trailer', component: Trailer, options: headerShown },
   {
     name: 'SignUp',
@@ -53,7 +53,7 @@ const App = () => {
               name={screen.name}
               component={screen.component}
               options={({ route }) =>
-                screen.name === 'MovieCollection'
+                screen.name === 'Collection'
                   ? Object.assign(
                       { title: route.params.headerTitle },
                       screen.options

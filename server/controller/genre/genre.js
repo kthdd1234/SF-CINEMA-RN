@@ -3,15 +3,14 @@ const Sequelize = require('sequelize');
 
 module.exports = {
   get: (req, res) => {
-    let { genre, count } = req.query;
-    count = count !== undefined ? count : 100;
+    let { genre } = req.query;
 
     movies
       .findAll({
         where: {
           genre: genre,
         },
-        limit: Number(count),
+
         raw: true,
         order: Sequelize.literal('rand()'),
       })

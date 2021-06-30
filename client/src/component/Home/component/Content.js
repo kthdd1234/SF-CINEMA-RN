@@ -4,12 +4,15 @@ import {
   widthPercentageToDP as wp,
   heightPercentageToDP as hp,
 } from 'react-native-responsive-screen';
+import { useNavigation } from '@react-navigation/native';
 
-const MovieListEntry = ({ movie, navigation }) => {
+const MovieListEntry = ({ movie }) => {
+  const navigation = useNavigation();
+
   return (
     <TouchableOpacity
       onPress={() =>
-        navigation.push('MovieDetails', {
+        navigation.push('Movie', {
           headerTitle: movie.title,
           movie: movie,
         })

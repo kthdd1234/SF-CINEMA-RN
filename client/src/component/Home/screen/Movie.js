@@ -1,14 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import {
-  StyleSheet,
-  View,
-  Text,
-  Image,
-  Dimensions,
-  Alert,
-} from 'react-native';
+import { StyleSheet, View, Text, Image, Dimensions, Alert } from 'react-native';
 import { Divider, Button } from 'react-native-elements';
-import { AntDesign, Entypo } from 'react-native-vector-icons';
 import { heightPercentageToDP as hp } from 'react-native-responsive-screen';
 import {
   genres,
@@ -16,61 +8,23 @@ import {
   saveCancel,
   saveCompleted,
   likeCancel,
-} from '../../requests';
+} from '../../../requests';
+import {
+  PlusIcon,
+  LikeIcon,
+  PlayIcon,
+  DotsVerticalIcon,
+  CheckIcon,
+  LikeFillIcon,
+  Down,
+  Bulb1,
+} from '../icon';
 import { LinearGradient } from 'expo-linear-gradient';
-import MovieList from './MovieList';
-import Trailer from './Trailer';
 import { FlatList } from 'react-native-gesture-handler';
+import List from '../component/List';
+import Trailer from '../component/Trailer';
 
 const { width: SCREEN_WIDTH } = Dimensions.get('window');
-
-const PlusIcon = () => {
-  return (
-    <View style={styles.actionIcons}>
-      <AntDesign name='plus' size={23} color='whitesmoke' />
-    </View>
-  );
-};
-
-const LikeIcon = ({ size }) => {
-  return (
-    <View style={styles.actionIcons}>
-      <AntDesign name='like2' size={size} color='whitesmoke' />
-    </View>
-  );
-};
-
-const PlayIcon = () => {
-  return (
-    <View style={styles.actionIcons}>
-      <AntDesign name='playcircleo' size={23} color='whitesmoke' />
-    </View>
-  );
-};
-
-const DotsVerticalIcon = () => {
-  return (
-    <View style={styles.actionIcons}>
-      <Entypo name='dots-three-vertical' size={23} color='whitesmoke' />
-    </View>
-  );
-};
-
-const CheckIcon = () => {
-  return (
-    <View style={styles.actionIcons}>
-      <AntDesign name='check' size={23} color='tomato' />
-    </View>
-  );
-};
-
-const LikeFillIcon = () => {
-  return (
-    <View style={styles.actionIcons}>
-      <AntDesign name='like1' size={23} color='tomato' />
-    </View>
-  );
-};
 
 const BackDrop = ({ userRating, numberOfLikes, backDrop }) => {
   return (
@@ -249,7 +203,7 @@ const Viewmore = ({ viewmore, setNumberOfLines, setViewmore }) => {
           title={' 더보기'}
           titleStyle={styles.viewmoreText}
           buttonStyle={styles.viewmoreButton}
-          icon={<AntDesign name='down' color='gray' />}
+          icon={Down}
           onPress={() => {
             setNumberOfLines(20);
             setViewmore(false);
@@ -274,14 +228,14 @@ const Summary = ({ director, actors, genre, releaseDate }) => {
   );
 };
 
-const SimilarMovies = ({ similarMovies, navigation }) => {
+const SimilarMovies = ({ similarMovies }) => {
   return (
     <View>
       <Text style={styles.similarMoviesTitle}>
-        <AntDesign name='bulb1' color='whitesmoke' /> 비슷한 작품들
+        <Bulb1 /> 비슷한 작품들
       </Text>
       <View style={styles.similarMovies}>
-        <MovieList movieList={similarMovies} navigation={navigation} />
+        <List movieList={similarMovies} />
       </View>
     </View>
   );
@@ -302,12 +256,7 @@ const UserRatings = ({ userRating, numberOfLikes }) => {
   );
 };
 
-const MovieDetails = ({
-  route,
-  navigation,
-  profile,
-  updateProfileToReduxStore,
-}) => {
+const Movie = ({ route, navigation, profile, updateProfileToReduxStore }) => {
   const { movie } = route.params;
   const [similarMovies, setSimilarMovies] = useState([]);
   const [viewmore, setViewmore] = useState(true);
@@ -554,4 +503,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default MovieDetails;
+export default Movie;

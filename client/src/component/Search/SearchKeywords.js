@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useCallback } from 'react';
 import { StyleSheet, View, Image, FlatList } from 'react-native';
 import { Button } from 'react-native-elements';
 import { contents } from '../../requests';
@@ -7,7 +7,7 @@ const SearchKeywordItem = ({ keyword, movieId, backDrop, navigation }) => {
   const onPressKeyword = useCallback((movieId) => {
     const getContentsData = async () => {
       const movie = await contents(movieId);
-      navigation.navigate('MovieDetails', {
+      navigation.navigate('Movie', {
         headerTitle: keyword,
         movie: movie,
       });

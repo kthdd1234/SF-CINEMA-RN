@@ -1,97 +1,44 @@
-import React, { useCallback } from 'react';
-import { StyleSheet, FlatList, View } from 'react-native';
-import { Button } from 'react-native-elements';
+import React from 'react';
+import CategoryList from './component/CategoryList';
 import { movieSeries } from '../../../requests';
 
 const seriesList = [
-  { key: 'The Avengers', series: '어벤져스' },
-  { key: 'Transformers', series: '트랜스포머' },
-  { key: '28 Days Later', series: '28일 후' },
-  { key: 'Batman', series: '배트맨' },
-  { key: 'Men In Black', series: '맨 인 블랙' },
-  { key: 'Blade Runner', series: '블레이드 러너' },
-  { key: 'Back to the Future', series: '백 투 더 퓨쳐' },
-  { key: 'Planet of the Apes', series: '혹성탈출' },
-  { key: 'Divergent', series: '다이버전트' },
-  { key: 'The Hunger Games', series: '헝거게임' },
-  { key: 'The Maze Runner', series: '메이즈 러너' },
-  { key: 'Thor', series: '토르' },
-  { key: 'Guardians of the Galaxy', series: '가디언즈 오브 갤럭시' },
-  { key: 'Cloverfield', series: '클로버필드' },
-  { key: 'The Terminator', series: '터미네이터' },
-  { key: 'Captain America', series: '캡틴 아메리카' },
-  { key: 'Spiderman', series: '스파이더맨' },
-  { key: 'Pacific Rim', series: '퍼시픽 림' },
-  { key: 'Star Trek', series: '스타트렉' },
-  { key: 'Star Wars', series: '스타워즈' },
-  { key: 'Alien', series: '에이리언' },
-  { key: 'Resident Evil', series: '레지던트 이블' },
-  { key: 'Iron Man', series: '아이언맨' },
-  { key: 'Ant-Man', series: '앤트맨' },
-  { key: 'Deadpool', series: '데드풀' },
-  { key: 'X-MEN', series: '엑스맨' },
-  { key: 'A Quiet Place', series: '콰이어트 플레이스' },
-  { key: 'Jurassic World', series: '쥬라기 월드' },
+  { key: 'The Avengers', value: '어벤져스', method: movieSeries },
+  { key: 'Transformers', value: '트랜스포머', method: movieSeries },
+  { key: '28 Days Later', value: '28일 후', method: movieSeries },
+  { key: 'Batman', value: '배트맨', method: movieSeries },
+  { key: 'Men In Black', value: '맨 인 블랙', method: movieSeries },
+  { key: 'Blade Runner', value: '블레이드 러너', method: movieSeries },
+  { key: 'Back to the Future', value: '백 투 더 퓨쳐', method: movieSeries },
+  { key: 'Planet of the Apes', value: '혹성탈출', method: movieSeries },
+  { key: 'Divergent', value: '다이버전트', method: movieSeries },
+  { key: 'The Hunger Games', value: '헝거게임', method: movieSeries },
+  { key: 'The Maze Runner', value: '메이즈 러너', method: movieSeries },
+  { key: 'Thor', value: '토르', method: movieSeries },
+  {
+    key: 'Guardians of the Galaxy',
+    value: '가디언즈 오브 갤럭시',
+    method: movieSeries,
+  },
+  { key: 'Cloverfield', value: '클로버필드', method: movieSeries },
+  { key: 'The Terminator', value: '터미네이터', method: movieSeries },
+  { key: 'Captain America', value: '캡틴 아메리카', method: movieSeries },
+  { key: 'Spiderman', value: '스파이더맨', method: movieSeries },
+  { key: 'Pacific Rim', value: '퍼시픽 림', method: movieSeries },
+  { key: 'Star Trek', value: '스타트렉', method: movieSeries },
+  { key: 'Star Wars', value: '스타워즈', method: movieSeries },
+  { key: 'Alien', value: '에이리언', method: movieSeries },
+  { key: 'Resident Evil', value: '레지던트 이블', method: movieSeries },
+  { key: 'Iron Man', value: '아이언맨', method: movieSeries },
+  { key: 'Ant-Man', value: '앤트맨', method: movieSeries },
+  { key: 'Deadpool', value: '데드풀', method: movieSeries },
+  { key: 'X-MEN', value: '엑스맨', method: movieSeries },
+  { key: 'A Quiet Place', value: '콰이어트 플레이스', method: movieSeries },
+  { key: 'Jurassic World', value: '쥬라기 월드', method: movieSeries },
 ];
 
-const SeriesItem = ({ series, navigation }) => {
-  const onPressSeriesItem = useCallback((series) => {
-    const getSeriesData = async () => {
-      const seriesList = await movieSeries(series);
-      navigation.navigate('MovieCollection', {
-        headerTitle: series,
-        movieList: seriesList,
-      });
-    };
-    getSeriesData();
-  });
-
-  return (
-    <Button
-      title={series}
-      buttonStyle={styles.buttonWrap}
-      titleStyle={styles.buttonText}
-      onPress={() => onPressSeriesItem(series)}
-    />
-  );
+const Series = () => {
+  return <CategoryList data={seriesList} />;
 };
-
-const Series = ({ navigation }) => {
-  const renderItem = ({ item }) => {
-    return <SeriesItem series={item.series} navigation={navigation} />;
-  };
-  return (
-    <View style={styles.container}>
-      <FlatList
-        data={seriesList}
-        renderItem={renderItem}
-        keyExtractor={(item) => item.key}
-      />
-    </View>
-  );
-};
-
-const styles = StyleSheet.create({
-  container: {
-    backgroundColor: 'rgb(20,21,23)',
-    paddingLeft: 2,
-    paddingRight: 2,
-  },
-  buttonWrap: {
-    backgroundColor: 'rgb(20, 21, 23)',
-    paddingTop: 10,
-    paddingBottom: 10,
-    borderColor: 'srgb(48, 47, 47)',
-    borderBottomWidth: 1,
-  },
-  buttonText: {
-    color: 'whitesmoke',
-    paddingLeft: 0,
-    flex: 1,
-    textAlign: 'left',
-    fontSize: 18,
-    fontWeight: 'bold',
-  },
-});
 
 export default Series;

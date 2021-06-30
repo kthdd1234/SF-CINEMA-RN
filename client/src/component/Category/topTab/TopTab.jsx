@@ -5,32 +5,41 @@ import Series from '../screen/Series';
 
 const Tab = createMaterialTopTabNavigator();
 
+const tabBarOptions = {
+  activeTintColor: 'whitesmoke',
+  pressColor: 'white',
+  indicatorStyle: {
+    backgroundColor: 'red',
+  },
+  style: { backgroundColor: 'black' },
+};
+
+const tabScreens = [
+  {
+    name: 'Characteristic',
+    component: Characteristic,
+    options: { tabBarLabel: '특징' },
+  },
+  {
+    name: 'Series',
+    component: Series,
+    options: {
+      tabBarLabel: '시리즈',
+    },
+  },
+];
+
 const TopTab = () => {
   return (
-    <Tab.Navigator
-      tabBarOptions={{
-        activeTintColor: 'whitesmoke',
-        pressColor: 'white',
-        indicatorStyle: {
-          backgroundColor: 'red',
-        },
-        style: { backgroundColor: 'black' },
-      }}
-    >
-      <Tab.Screen
-        name='Characteristic'
-        component={Characteristic}
-        options={{
-          tabBarLabel: '특징',
-        }}
-      />
-      <Tab.Screen
-        name='Series'
-        component={Series}
-        options={{
-          tabBarLabel: '시리즈',
-        }}
-      />
+    <Tab.Navigator tabBarOptions={tabBarOptions}>
+      {tabScreens.map(({ name, component, options }, screenIdx) => (
+        <Tab.Screen
+          key={screenIdx}
+          name={name}
+          component={component}
+          options={options}
+        />
+      ))}
     </Tab.Navigator>
   );
 };
