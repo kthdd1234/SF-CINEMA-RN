@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import { setSearching, setSearchResult } from '../actions';
-import SearchHeader from '../component/Search/SearchHeader';
+import SearchHeader from '../components/Search/SearchHeader';
 
 const mapReduxDispatchToReactProps = (dispatch) => {
   return {

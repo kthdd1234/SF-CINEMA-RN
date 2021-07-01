@@ -3,25 +3,20 @@ import { StyleSheet, View, FlatList } from 'react-native';
 import Content from './Content';
 
 const List = ({ movieList }) => {
-  const RenderItem = ({ item }) => {
-    const { movie } = item;
-    return <Content movie={movie} />;
-  };
-
   return (
-    <View style={styles.movieList}>
+    <View style={styles.list}>
       <FlatList
         data={movieList}
-        renderItem={RenderItem}
+        renderItem={({ item }) => <Content movie={item} />}
         keyExtractor={(item) => item.title}
-        style={styles.movieList}
+        style={styles.list}
       />
     </View>
   );
 };
 
 const styles = StyleSheet.create({
-  movieList: {
+  list: {
     flexDirection: 'row',
     flexWrap: 'wrap',
   },

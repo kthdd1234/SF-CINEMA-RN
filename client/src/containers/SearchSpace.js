@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import SearchSpace from '../component/Search/SearchSpace';
+import SearchSpace from '../components/Search/SearchSpace';
 
 const mapReduxStateToReactProps = ({ searchReducer }) => {
   return {

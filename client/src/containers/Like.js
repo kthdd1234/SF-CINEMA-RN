@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import Like from '../component/User/Like';
+import Like from '../components/User/Like';
 
 const mapReduxStateToReactProps = ({ userReducer }) => {
   return {

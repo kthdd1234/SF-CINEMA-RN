@@ -1,8 +1,8 @@
-import React, { useCallback, useState } from 'react';
+import React from 'react';
 import { StyleSheet, View, Text } from 'react-native';
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
-import Save from '../../container/Save';
-import Like from '../../container/Like';
+import Save from '../../containers/Save';
+import Like from '../../containers/Like';
 
 const Tab = createMaterialTopTabNavigator();
 

@@ -2,7 +2,7 @@ import React from 'react';
 import { StyleSheet, View, Text, FlatList } from 'react-native';
 import { AntDesign } from 'react-native-vector-icons';
 import { useNavigation } from '@react-navigation/native';
-import MovieList from '../Home/MovieList';
+import List from '../Home/component/List';
 
 const LikeIcon = () => {
   return <AntDesign name='like2' size={80} color='srgb(48, 47, 47)' />;
@@ -26,7 +26,7 @@ const Like = ({ profile }) => {
       {likedMovie.length ? (
         <FlatList
           ListEmptyComponent={
-            <MovieList movieList={likedMovie} navigation={navigation} />
+            <List movieList={likedMovie} navigation={navigation} />
           }
         />
       ) : (

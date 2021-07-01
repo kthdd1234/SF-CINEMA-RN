@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import { setSearchResult } from '../actions';
-import Search from '../component/Search';
+import Search from '../components/Search';
 
 const mapReduxDispatchToReactProps = (dispatch) => {
   return {

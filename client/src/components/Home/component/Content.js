@@ -6,8 +6,9 @@ import {
 } from 'react-native-responsive-screen';
 import { useNavigation } from '@react-navigation/native';
 
-const MovieListEntry = ({ movie }) => {
+const Content = ({ movie }) => {
   const navigation = useNavigation();
+  const { backDrop, title } = movie;
 
   return (
     <TouchableOpacity
@@ -22,10 +23,10 @@ const MovieListEntry = ({ movie }) => {
         <Image
           style={styles.exampleImage}
           source={{
-            uri: `https://image.tmdb.org/t/p/original${movie.backDrop}`,
+            uri: `https://image.tmdb.org/t/p/original${backDrop}`,
           }}
         />
-        <Text style={styles.movieTitle}>{movie.title}</Text>
+        <Text style={styles.title}>{title}</Text>
       </View>
     </TouchableOpacity>
   );
@@ -33,8 +34,8 @@ const MovieListEntry = ({ movie }) => {
 
 const styles = StyleSheet.create({
   imageWarp: {
-    width: wp('46.3'),
-    height: hp('15'),
+    width: wp('46'),
+    height: hp('16'),
     marginBottom: 35,
     marginRight: wp('1'),
     marginTop: 10,
@@ -43,9 +44,9 @@ const styles = StyleSheet.create({
     width: '100%',
     height: '100%',
   },
-  movieTitle: {
+  title: {
     color: 'rgba(255, 255, 255, 0.8)',
   },
 });
 
-export default MovieListEntry;
+export default Content;

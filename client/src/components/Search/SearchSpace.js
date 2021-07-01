@@ -1,6 +1,6 @@
 import React from 'react';
 import { StyleSheet, ActivityIndicator, View, Text } from 'react-native';
-import SearchKeywords from '../../container/SearchKeywords';
+import SearchKeywords from '../../containers/SearchKeywords';
 import { AntDesign } from 'react-native-vector-icons';
 
 const SearchKeywordTitle = () => {

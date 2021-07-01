@@ -6,7 +6,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import BottomTab from './containers/BottomTab';
 import Movie from './containers/Movie';
-import Collection from './components/Home/Collection';
+import Collection from './components/Home/screen/Collection';
 import Trailer from './components/Home/component/Trailer';
 import SignUp from './components/Auth/screen/SignUp';
 import reducer from './reducers';

@@ -2,7 +2,7 @@ import React from 'react';
 import { StyleSheet, FlatList, View, Text } from 'react-native';
 import { AntDesign } from 'react-native-vector-icons';
 import { useNavigation } from '@react-navigation/native';
-import MovieList from '../Home/MovieList';
+import List from '../Home/component/List';
 
 const SaveIcon = () => {
   return <AntDesign name='pluscircleo' size={80} color='srgb(48, 47, 47)' />;
@@ -26,7 +26,7 @@ const Save = ({ profile }) => {
       {savedMovie.length ? (
         <FlatList
           ListEmptyComponent={
-            <MovieList movieList={savedMovie} navigation={navigation} />
+            <List movieList={savedMovie} navigation={navigation} />
           }
         />
       ) : (

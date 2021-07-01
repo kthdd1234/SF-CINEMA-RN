@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
-import SearchSpace from '../../container/SearchSpace';
-import SearchHeader from '../../container/SearchHeader';
+import SearchSpace from '../../containers/SearchSpace';
+import SearchHeader from '../../containers/SearchHeader';
 import { searchKeywordList } from '../Search/searchKeywordList';
 
 const Stack = createStackNavigator();

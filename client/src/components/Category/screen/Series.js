@@ -1,5 +1,5 @@
 import React from 'react';
-import CategoryList from './component/CategoryList';
+import CategoryList from '../component/CategoryList';
 import { movieSeries } from '../../../requests';
 
 const seriesList = [
