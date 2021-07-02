@@ -1,13 +1,13 @@
 import React from 'react';
 import { StyleSheet, View, FlatList } from 'react-native';
-import RenderItem from './RenderItem';
+import Item from './Item';
 
 const CategoryList = ({ data }) => {
   return (
     <View style={styles.container}>
       <FlatList
         data={data}
-        renderItem={RenderItem}
+        renderItem={({ item }) => <Item item={item} />}
         keyExtractor={(item) => item.key}
       />
     </View>

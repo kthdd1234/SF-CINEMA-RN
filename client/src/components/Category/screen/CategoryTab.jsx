@@ -1,7 +1,7 @@
 import React from 'react';
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
-import Characteristic from '../screen/Characteristic';
-import Series from '../screen/Series';
+import Characteristic from './Characteristic';
+import Series from './Series';
 
 const Tab = createMaterialTopTabNavigator();
 
@@ -29,7 +29,7 @@ const tabScreens = [
   },
 ];
 
-const TopTab = () => {
+const CategoryTab = () => {
   return (
     <Tab.Navigator tabBarOptions={tabBarOptions}>
       {tabScreens.map(({ name, component, options }, screenIdx) => (
@@ -44,4 +44,4 @@ const TopTab = () => {
   );
 };
 
-export default TopTab;
+export default CategoryTab;

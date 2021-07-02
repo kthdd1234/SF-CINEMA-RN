@@ -3,7 +3,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 import Login from '../../containers/Login';
 import Logo from '../Home/component/Logo';
 
-const Stack = createStackNavigator();
+const { Navigator, Screen } = createStackNavigator();
 
 const options = {
   headerTitle: (props) => <Logo {...props} />,
@@ -13,12 +13,12 @@ const options = {
   headerTitleAlign: 'center',
 };
 
-const Auth = () => {
+const AuthStack = () => {
   return (
-    <Stack.Navigator initialRouteName='Login'>
-      <Stack.Screen name='Login' component={Login} options={options} />
-    </Stack.Navigator>
+    <Navigator initialRouteName='Login'>
+      <Screen name='Login' component={Login} options={options} />
+    </Navigator>
   );
 };
 
-export default Auth;
+export default AuthStack;

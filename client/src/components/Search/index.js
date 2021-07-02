@@ -4,7 +4,7 @@ import SearchSpace from '../../containers/SearchSpace';
 import SearchHeader from '../../containers/SearchHeader';
 import { searchKeywordList } from '../Search/searchKeywordList';
 
-const Stack = createStackNavigator();
+const { Navigator, Screen } = createStackNavigator();
 
 const Search = ({ sendSearchResultToReduxStore }) => {
   useEffect(() => {
@@ -12,18 +12,16 @@ const Search = ({ sendSearchResultToReduxStore }) => {
   }, []);
 
   return (
-    <Stack.Navigator initialRouteName='SearchSpace'>
-      <Stack.Screen
+    <Navigator initialRouteName='SearchSpace'>
+      <Screen
         name='SearchSpace'
         component={SearchSpace}
-        options={({ route }) => ({
+        options={() => ({
           headerTitle: (props) => <SearchHeader {...props} />,
-          headerStyle: {
-            backgroundColor: 'black',
-          },
+          headerStyle: { backgroundColor: 'black' },
         })}
       />
-    </Stack.Navigator>
+    </Navigator>
   );
 };
 

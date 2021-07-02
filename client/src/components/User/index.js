@@ -4,12 +4,12 @@ import { createStackNavigator } from '@react-navigation/stack';
 import { Button } from 'react-native-elements';
 import MyPage from './MyPage';
 
-const Stack = createStackNavigator();
+const { Navigator, Screen } = createStackNavigator();
 
 const User = ({ profile }) => {
   return (
-    <Stack.Navigator initialRouteName='MyPage'>
-      <Stack.Screen
+    <Navigator initialRouteName='MyPage'>
+      <Screen
         name='MyPage'
         component={MyPage}
         options={{
@@ -34,7 +34,7 @@ const User = ({ profile }) => {
           headerTitleStyle: styles.headerText,
         }}
       />
-    </Stack.Navigator>
+    </Navigator>
   );
 };
 

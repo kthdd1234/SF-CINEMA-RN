@@ -1,11 +1,11 @@
 import * as React from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import AntDesign from 'react-native-vector-icons/AntDesign';
-import Home from '../Home/Home';
-import Category from '../Category/Category';
-import Auth from '../Auth/Auth';
-import Search from '../../containers/Search';
-import User from '../../containers/User';
+import HomeStack from './components/Home/HomeStack';
+import CategoryStack from './components/Category/CategoryStack';
+import AuthStack from './components/Auth/AuthStack';
+import Search from './containers/Search';
+import User from './containers/User';
 
 const Tab = createBottomTabNavigator();
 
@@ -29,11 +29,11 @@ const tabBarOptions = {
 const defaultScreens = [
   {
     name: '홈',
-    component: Home,
+    component: HomeStack,
   },
   {
     name: '카테고리',
-    component: Category,
+    component: CategoryStack,
   },
   {
     name: '검색',
@@ -64,7 +64,7 @@ const BottomTab = ({ isLogin }) => {
       {isLogin ? (
         <Tab.Screen name='마이페이지' component={User} />
       ) : (
-        <Tab.Screen name='로그인/가입' component={Auth} />
+        <Tab.Screen name='로그인/가입' component={AuthStack} />
       )}
     </Tab.Navigator>
   );

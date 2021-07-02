@@ -1,27 +1,25 @@
 import React, { useState, useEffect } from 'react';
+import { StyleSheet, StatusBar, FlatList, View } from 'react-native';
 import {
-  StyleSheet,
-  Dimensions,
-  StatusBar,
-  FlatList,
-  View,
-} from 'react-native';
-import {
-  AntDesign,
-  Entypo,
-  MaterialCommunityIcons,
-} from 'react-native-vector-icons';
+  SlackIcon,
+  StarIcon,
+  VideoIcon,
+  CrownIcon,
+  DingdingIcon,
+  AlienIcon,
+  FlashIcon,
+} from '../icon';
 import {
   latestMovies,
   recommendMovies,
   highlyRatedMovies,
   genres,
   sfMasterpiece,
-} from '../../../requests';
+} from '../../../../requests';
 import Swiper from '../component/Swiper';
 import MovieList from '../component/MovieList';
 
-const Container = () => {
+const Home = () => {
   const [recommendMovieList, setRecommendMovieList] = useState([]);
   const [latestMovieList, setLatestMovieList] = useState([]);
   const [highlyRatedMovieList, setHighlyRatedMovieList] = useState([]);
@@ -33,42 +31,42 @@ const Container = () => {
   const data = [
     {
       listTitle: '추천 영화',
-      icon: <AntDesign name='slack' size={18} />,
+      icon: <SlackIcon />,
       movieList: recommendMovieList,
       req: recommendMovies,
       setMovies: setRecommendMovieList,
     },
     {
       listTitle: '평점이 높은 영화',
-      icon: <AntDesign name='star' size={18} />,
+      icon: <StarIcon />,
       movieList: highlyRatedMovieList,
       req: highlyRatedMovies,
       setMovies: setHighlyRatedMovieList,
     },
     {
       listTitle: '최신 개봉작',
-      icon: <Entypo name='video' size={18} />,
+      icon: <VideoIcon />,
       movieList: latestMovieList,
       req: latestMovies,
       setMovies: setLatestMovieList,
     },
     {
       listTitle: 'SF 명작',
-      icon: <MaterialCommunityIcons name='crown' size={18} />,
+      icon: <CrownIcon />,
       movieList: sfMasterpieceMovieList,
       req: sfMasterpiece,
       setMovies: setSfMasterpieceMovieList,
     },
     {
       listTitle: '슈퍼 히어로',
-      icon: <AntDesign name='dingding' size={18} />,
+      icon: <DingdingIcon />,
       movieList: superHeroMovieList,
       req: genres,
       setMovies: setSuperHeroMovieList,
     },
     {
       listTitle: '외계인',
-      icon: <MaterialCommunityIcons name='alien' size={18} />,
+      icon: <AlienIcon />,
       movieList: alienMovieList,
       req: genres,
       setMovies: setAlienMovieList,
@@ -76,7 +74,7 @@ const Container = () => {
 
     {
       listTitle: '액션',
-      icon: <Entypo name='flash' size={18} />,
+      icon: <FlashIcon />,
       movieList: actionMovieList,
       req: genres,
       setMovies: setActionMovieList,
@@ -112,17 +110,11 @@ const Container = () => {
   );
 };
 
-const { width } = Dimensions.get('window');
-
 const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: 'rgb(20,21,23)',
   },
-  poster: {
-    width: width,
-    height: 550,
-  },
 });
 
-export default Container;
+export default Home;

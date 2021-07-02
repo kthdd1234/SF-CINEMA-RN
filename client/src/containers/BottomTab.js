@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import BottomTab from '../components/BottomTab/BottomTab';
+import BottomTab from '../BottomTab';
 
 const mapReduxStateToReactProps = ({ userReducer }) => {
   return {

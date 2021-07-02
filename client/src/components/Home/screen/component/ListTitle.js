@@ -10,6 +10,7 @@ const ListTitle = ({ icon, listTitle }) => {
 };
 
 const StyledListTitle = styled.Text`
+  margin-bottom: 10px;
   color: white;
   font-size: 18px;
   font-weight: bold;

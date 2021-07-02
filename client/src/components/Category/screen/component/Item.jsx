@@ -3,13 +3,14 @@ import { StyleSheet } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { Button } from 'react-native-elements';
 
-const Item = ({ value, method }) => {
+const Item = ({ item }) => {
+  const { value, method } = item;
   const navigation = useNavigation();
 
   const onPress = async () => {
     const data = await method(value);
 
-    navigation.navigate('MovieCollection', {
+    navigation.navigate('Collection', {
       headerTitle: value,
       movieList: data,
     });

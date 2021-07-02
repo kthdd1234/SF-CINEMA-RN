@@ -6,14 +6,14 @@ const Viewmore = ({ setViewmore }) => {
   return (
     <Button
       title={' 더보기'}
-      titleStyle={styled.title}
-      buttonStyle={styled.btn}
+      titleStyle={style.title}
+      buttonStyle={style.btn}
       onPress={() => setViewmore(true)}
     />
   );
 };
 
-const styled = StyleSheet.create({
+const style = StyleSheet.create({
   title: {
     fontSize: 14,
     color: 'gray',
