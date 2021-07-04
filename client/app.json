@@ -6,7 +6,7 @@
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "splash": {
-      "image": "./src/components/Home/Image/SFCINEMA.png",
+      "image": "./src/components/Home/screen/Main/image/SFCINEMA.png",
       "resizeMode": "contain",
       "backgroundColor": "#000000",
       "width": "200px",

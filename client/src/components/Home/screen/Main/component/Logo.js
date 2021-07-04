@@ -1,7 +1,7 @@
 import React from 'react';
 import { Image } from 'react-native';
 import styled from 'styled-components';
-import SFCINEMA from '../Image/SFCINEMA.png';
+import SFCINEMA from '../image/SFCINEMA.png';
 
 const Logo = () => {
   return <StyledLogo source={SFCINEMA} />;

@@ -2,7 +2,7 @@ import React from 'react';
 import { StyleSheet, FlatList, View, Text } from 'react-native';
 import { AntDesign } from 'react-native-vector-icons';
 import { useNavigation } from '@react-navigation/native';
-import List from '../Home/component/List';
+import List from '../Home/screen/Main/component/List';
 
 const SaveIcon = () => {
   return <AntDesign name='pluscircleo' size={80} color='srgb(48, 47, 47)' />;

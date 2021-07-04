@@ -1,7 +1,7 @@
 import React from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
 import Login from '../../containers/Login';
-import Logo from '../Home/component/Logo';
+import Logo from '../Home/screen/Main/component/Logo';
 
 const { Navigator, Screen } = createStackNavigator();
 

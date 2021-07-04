@@ -1,23 +1,22 @@
 import React from 'react';
-import { StyleSheet, View, FlatList } from 'react-native';
-import List from '../component/List';
+import { FlatList } from 'react-native';
+import styled from 'styled-components/native';
+import List from '../Main/component/List';
 
 const Collection = ({ route }) => {
   const { movieList } = route.params;
 
   return (
-    <View style={styles.container}>
+    <StyledCollection>
       <FlatList ListEmptyComponent={<List movieList={movieList} />} />
-    </View>
+    </StyledCollection>
   );
 };
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    padding: 10,
-    backgroundColor: 'rgb(20, 21, 23)',
-  },
-});
+const StyledCollection = styled.View`
+  flex: 1;
+  padding: 10px;
+  background-color: rgb(20, 21, 23);
+`;
 
 export default Collection;

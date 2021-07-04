@@ -2,7 +2,7 @@ import React from 'react';
 import { StyleSheet, View, Text, FlatList } from 'react-native';
 import { AntDesign } from 'react-native-vector-icons';
 import { useNavigation } from '@react-navigation/native';
-import List from '../Home/component/List';
+import List from '../Home/screen/Main/component/List';
 
 const LikeIcon = () => {
   return <AntDesign name='like2' size={80} color='srgb(48, 47, 47)' />;

@@ -8,7 +8,7 @@ import {
   saveCancel,
   saveCompleted,
   likeCancel,
-} from '../../../requests';
+} from '../../../../requests';
 import {
   PlusIcon,
   LikeIcon,
@@ -18,11 +18,11 @@ import {
   LikeFillIcon,
   Down,
   Bulb1,
-} from '../icon';
+} from './icon';
 import { LinearGradient } from 'expo-linear-gradient';
 import { FlatList } from 'react-native-gesture-handler';
-import List from '../component/List';
-import Trailer from '../component/Trailer';
+import List from '../Main/component/List';
+import Trailer from './component/Trailer';
 
 const { width: SCREEN_WIDTH } = Dimensions.get('window');
 

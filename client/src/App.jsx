@@ -7,7 +7,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 import BottomTab from './containers/BottomTab';
 import Movie from './containers/Movie';
 import Collection from './components/Home/screen/Collection/Collection';
-import Trailer from './components/Home/component/Trailer';
+import Trailer from './components/Home/screen/Movie/component/Trailer';
 import SignUp from './components/Auth/screen/SignUp';
 import reducer from './reducers';
 

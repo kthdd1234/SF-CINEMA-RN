@@ -1,12 +1,5 @@
 import React, { useCallback } from 'react';
-import {
-  StyleSheet,
-  Image,
-  Dimensions,
-  View,
-  TouchableOpacity,
-} from 'react-native';
-import SwiperList from 'react-native-swiper';
+import { StyleSheet, Image, Dimensions, TouchableOpacity } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
 import {
   upcomingMovies,
@@ -14,9 +7,11 @@ import {
   highlyRatedMovies,
   genres,
   contents,
-} from '../../../requests';
-import Intro from './Intro';
+} from '../../../../../requests';
 import { useNavigation } from '@react-navigation/native';
+import SwiperList from 'react-native-swiper';
+import Intro from './Intro';
+import styled from 'styled-components/native';
 
 const { width } = Dimensions.get('window');
 
@@ -110,60 +105,55 @@ const Swiper = () => {
   }, []);
 
   return (
-    <View>
-      <SwiperList
-        style={styles.wrapper}
-        showsButtons={false}
-        containerStyle={styles.swiperContainer}
-        paginationStyle={styles.dotPagination}
-        dotColor='gray'
-        activeDotColor='white'
-      >
-        {swiperMovieList.map(({ sub, desc1, desc2, req, path }, key) => (
-          <TouchableOpacity
-            activeOpacity={1}
-            key={key}
-            onPress={() => onPressSwiperImage(sub, req)}
-          >
-            <Image
-              style={styles.swiperImage}
-              source={{
-                uri: `https://image.tmdb.org/t/p/original${path}`,
-              }}
-            />
-            <LinearGradient
-              colors={['transparent', 'rgb(20, 21, 23)']}
-              style={styles.contentsShadow}
-              end={{ x: 0, y: 1 }}
-            />
-            <Intro sub={sub} desc1={desc1} desc2={desc2} />
-          </TouchableOpacity>
-        ))}
-      </SwiperList>
-    </View>
+    <SwiperList
+      style={styles.swiper}
+      paginationStyle={styles.pagination}
+      dotColor='gray'
+      activeDotColor='white'
+      showsButtons={false}
+    >
+      {swiperMovieList.map(({ sub, desc1, desc2, req, path }, key) => (
+        <TouchableOpacity
+          activeOpacity={1}
+          key={key}
+          onPress={() => onPressSwiperImage(sub, req)}
+        >
+          <BackDrop
+            source={{ uri: `https://image.tmdb.org/t/p/original${path}` }}
+          />
+          <Shadow
+            colors={['transparent', 'rgb(20, 21, 23)']}
+            end={{ x: 0, y: 1 }}
+          />
+          <Intro sub={sub} desc1={desc1} desc2={desc2} />
+        </TouchableOpacity>
+      ))}
+    </SwiperList>
   );
 };
 
+const BackDrop = styled(Image)`
+  width: ${width};
+  height: 100%;
+`;
+
+const Shadow = styled(LinearGradient)`
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 140px;
+`;
+
 const styles = StyleSheet.create({
-  swiperContainer: {
+  swiper: {
     position: 'relative',
     height: 570,
   },
-  swiperImage: {
-    width: width,
-    height: '100%',
-  },
-  dotPagination: {
-    bottom: 0,
+  pagination: {
     marginBottom: 18,
     marginRight: 300,
-  },
-  contentsShadow: {
-    position: 'absolute',
-    left: 0,
-    right: 0,
     bottom: 0,
-    height: 140,
   },
 });
 
