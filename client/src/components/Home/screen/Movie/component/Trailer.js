@@ -9,7 +9,6 @@ const Trailer = ({ videoId, playing }) => {
   return (
     <View>
       <StatusBar hidden={true} />
-
       <YoutubePlayer
         width={SCREEN_WIDTH}
         height={hp('50%')}
@@ -17,14 +16,10 @@ const Trailer = ({ videoId, playing }) => {
         videoId={videoId}
         webViewProps={{
           injectedJavaScript: `
-      var element = document.getElementsByClassName('container')[0];
-      element.style.position = 'unset';
-      element.style.paddingBottom = 'unset';
-      true;
-    `,
-        }}
-        onPlaybackQualityChange={(quality) => {
-          console.log(quality);
+            var element = document.getElementsByClassName('container')[0];
+            element.style.position = 'unset';
+            element.style.paddingBottom = 'unset';
+            true; `,
         }}
       />
     </View>

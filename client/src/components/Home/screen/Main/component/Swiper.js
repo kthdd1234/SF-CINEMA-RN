@@ -10,7 +10,6 @@ import {
 } from '../../../../../requests';
 import { useNavigation } from '@react-navigation/native';
 import SwiperList from 'react-native-swiper';
-import Intro from './Intro';
 import styled from 'styled-components/native';
 
 const { width } = Dimensions.get('window');
@@ -125,7 +124,11 @@ const Swiper = () => {
             colors={['transparent', 'rgb(20, 21, 23)']}
             end={{ x: 0, y: 1 }}
           />
-          <Intro sub={sub} desc1={desc1} desc2={desc2} />
+          <Intro>
+            <Sub>{sub}</Sub>
+            <Desc>{desc1}</Desc>
+            <Desc>{desc2}</Desc>
+          </Intro>
         </TouchableOpacity>
       ))}
     </SwiperList>
@@ -143,6 +146,25 @@ const Shadow = styled(LinearGradient)`
   right: 0;
   bottom: 0;
   height: 140px;
+`;
+
+const Intro = styled.View`
+  position: absolute;
+  bottom: 0;
+  left: 10px;
+  margin-bottom: 40px;
+`;
+
+const Sub = styled.Text`
+  margin-bottom: 5px;
+  color: white;
+  font-size: 31px;
+  font-weight: bold;
+`;
+
+const Desc = styled.Text`
+  color: rgb(222, 218, 209);
+  font-size: 15px;
 `;
 
 const styles = StyleSheet.create({

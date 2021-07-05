@@ -4,7 +4,6 @@ import { Button } from 'react-native-elements';
 import { Down } from '../../Movie/icon';
 import styled from 'styled-components/native';
 import List from './List';
-import Viewmore from './Viewmore';
 
 const MovieList = ({ item }) => {
   const [viewmore, setViewmore] = useState(false);

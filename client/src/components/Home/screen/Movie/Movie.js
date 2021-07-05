@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { StyleSheet, View, Text, Image, Dimensions, Alert } from 'react-native';
+import { StyleSheet, View, Text, Alert, FlatList } from 'react-native';
 import { Divider, Button } from 'react-native-elements';
-import { heightPercentageToDP as hp } from 'react-native-responsive-screen';
 import {
   genres,
   likeCompleted,
@@ -19,45 +18,11 @@ import {
   Down,
   Bulb1,
 } from './icon';
-import { LinearGradient } from 'expo-linear-gradient';
-import { FlatList } from 'react-native-gesture-handler';
+import styled from 'styled-components/native';
+import BackDrop from './component/BackDrop';
+import SubTitle from './component/SubTitle';
 import List from '../Main/component/List';
 import Trailer from './component/Trailer';
-
-const { width: SCREEN_WIDTH } = Dimensions.get('window');
-
-const BackDrop = ({ userRating, numberOfLikes, backDrop }) => {
-  return (
-    <View style={styles.backDropWrap}>
-      <Image
-        style={styles.backDrop}
-        source={{
-          uri: `https://image.tmdb.org/t/p/original${backDrop}`,
-        }}
-      />
-      <UserRatings userRating={userRating} numberOfLikes={numberOfLikes} />
-      <LinearGradient
-        colors={['transparent', 'rgb(20, 21, 23)']}
-        style={styles.contentsShadow}
-        end={{ x: 0, y: 1 }}
-      />
-    </View>
-  );
-};
-
-const MovieTitle = ({ title }) => {
-  return <Text style={styles.title}>{title}</Text>;
-};
-
-const SubTitle = ({ ratingGrade, runtime }) => {
-  return (
-    <View style={styles.subTitle}>
-      <Text style={styles.ratingGrade}>{ratingGrade}</Text>
-      <Text style={styles.dot}>•</Text>
-      <Text style={styles.runtime}>{runtime}</Text>
-    </View>
-  );
-};
 
 const alertMessage = (message) => {
   return Alert.alert(
@@ -183,15 +148,13 @@ const ActionButtons = ({
 
 const MoviePlot = ({ numberOfLines, plot }) => {
   return (
-    <View style={styles.plotWrap}>
-      <Text
-        style={styles.plot}
-        numberOfLines={numberOfLines}
-        ellipsizeMode='tail'
-      >
-        {plot}
-      </Text>
-    </View>
+    <Text
+      style={styles.plot}
+      numberOfLines={numberOfLines}
+      ellipsizeMode='tail'
+    >
+      {plot}
+    </Text>
   );
 };
 
@@ -214,16 +177,16 @@ const Viewmore = ({ viewmore, setNumberOfLines, setViewmore }) => {
   );
 };
 
-const Summary = ({ director, actors, genre, releaseDate }) => {
+const Summary = ({ director, actors, genre, releaseDate, nation }) => {
   return (
-    <View>
-      <View style={styles.summaryWrap}>
-        <Text style={styles.director}>감독: {director}</Text>
-        <Text style={styles.actors}>출연: {actors}</Text>
-        <Text style={styles.characteristic}>
-          특징: {genre} / {String(releaseDate).slice(0, 4)}년
-        </Text>
-      </View>
+    <View style={styles.summaryWrap}>
+      <Text style={styles.director}>감독: {director}</Text>
+      <Text style={styles.actors} numberOfLines={1}>
+        출연: {actors}
+      </Text>
+      <Text style={styles.characteristic}>
+        개요: {genre} / {nation} / {String(releaseDate).slice(0, 4)}년
+      </Text>
     </View>
   );
 };
@@ -241,181 +204,103 @@ const SimilarMovies = ({ similarMovies }) => {
   );
 };
 
-const UserRatings = ({ userRating, numberOfLikes }) => {
-  return (
-    <View style={styles.userRatingContainer}>
-      <View style={styles.userRatingWrap}>
-        <Text style={styles.userRatingText}>유저평점</Text>
-        <Text style={styles.userRating}>{userRating}</Text>
-      </View>
-      <View style={styles.numberOfLikesWrap}>
-        <Text style={styles.numberOfLikesText}>재밌어요</Text>
-        <Text style={styles.numberOfLikes}>{numberOfLikes}</Text>
-      </View>
-    </View>
-  );
-};
-
-const Movie = ({ route, navigation, profile, updateProfileToReduxStore }) => {
-  const { movie } = route.params;
+const Movie = ({ route, profile, updateProfileToReduxStore }) => {
   const [similarMovies, setSimilarMovies] = useState([]);
   const [viewmore, setViewmore] = useState(true);
   const [numberOfLines, setNumberOfLines] = useState(3);
   const [playing, setPlaying] = useState(false);
+  const { movie } = route.params;
+  const {
+    title,
+    genre,
+    plot,
+    videoId,
+    backDrop,
+    userRating,
+    numberOfLikes,
+    ratingGrade,
+    runtime,
+  } = movie;
 
   useEffect(() => {
-    if (movie.plot.length < 100) {
+    if (plot.length < 100) {
       setViewmore(false);
     }
     const getSimilarMovies = async () => {
-      const similarMovieData = await genres(movie.genre, 8);
-      setSimilarMovies(similarMovieData);
+      const similarMovieData = await genres(genre);
+      setSimilarMovies(similarMovieData.slice(0, 8));
     };
     getSimilarMovies();
   }, []);
 
   return (
-    <View style={styles.container}>
-      <FlatList
-        ListHeaderComponent={
-          playing ? (
-            <Trailer videoId={movie.videoId} playing={true} />
-          ) : (
-            <BackDrop
-              setPlaying={setPlaying}
-              backDrop={movie.backDrop}
-              userRating={movie.userRating}
-              numberOfLikes={movie.numberOfLikes}
-            />
-          )
-        }
-        ListEmptyComponent={
-          <View style={styles.movieWrap}>
-            <MovieTitle title={movie.title} />
-
-            <SubTitle
-              userRating={movie.userRating}
-              ratingGrade={movie.ratingGrade}
-              runtime={movie.runtime}
-            />
-
-            <ActionButtons
-              profile={profile}
-              setPlaying={setPlaying}
-              movieId={movie.id}
-              updateProfileToReduxStore={updateProfileToReduxStore}
-            />
-
-            <Divider style={styles.divider} />
-
-            <MoviePlot numberOfLines={numberOfLines} plot={movie.plot} />
-
-            <Viewmore
-              viewmore={viewmore}
-              setNumberOfLines={setNumberOfLines}
-              setViewmore={setViewmore}
-            />
-
-            <Summary
-              director={movie.director}
-              actors={movie.actors}
-              genre={movie.genre}
-              releaseDate={movie.releaseDate}
-            />
-
-            <Divider style={styles.divider} />
-          </View>
-        }
-        ListFooterComponent={
-          <SimilarMovies
-            similarMovies={similarMovies}
-            navigation={navigation}
+    <StyledMovie
+      ListHeaderComponent={
+        playing ? (
+          <Trailer videoId={videoId} playing={playing} />
+        ) : (
+          <BackDrop
+            backDrop={backDrop}
+            userRating={userRating}
+            numberOfLikes={numberOfLikes}
           />
-        }
-      />
-    </View>
+        )
+      }
+      ListEmptyComponent={
+        <View style={styles.movieWrap}>
+          <Title>{title}</Title>
+          <SubTitle ratingGrade={ratingGrade} runtime={runtime} />
+          <ActionButtons
+            profile={profile}
+            setPlaying={setPlaying}
+            movieId={movie.id}
+            updateProfileToReduxStore={updateProfileToReduxStore}
+          />
+
+          <Divider style={styles.divider} />
+
+          <MoviePlot numberOfLines={numberOfLines} plot={movie.plot} />
+
+          <Viewmore
+            viewmore={viewmore}
+            setNumberOfLines={setNumberOfLines}
+            setViewmore={setViewmore}
+          />
+
+          <Summary
+            director={movie.director}
+            actors={movie.actors}
+            genre={movie.genre}
+            releaseDate={movie.releaseDate}
+            nation={movie.nation}
+          />
+
+          <Divider style={styles.divider} />
+        </View>
+      }
+      ListFooterComponent={<SimilarMovies similarMovies={similarMovies} />}
+    />
   );
 };
 
+const StyledMovie = styled(FlatList)`
+  flex: 1;
+  background-color: rgb(20, 21, 23);
+`;
+
+const Title = styled.Text`
+  font-size: 21px;
+  font-weight: bold;
+  color: whitesmoke;
+`;
+
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: 'rgb(20, 21, 23)',
-  },
-  backDropWrap: {
-    position: 'relative',
-  },
-  backDrop: {
-    width: SCREEN_WIDTH,
-    height: hp('35%'),
-  },
-
-  contentsShadow: {
-    position: 'absolute',
-    left: 0,
-    right: 0,
-    bottom: 0,
-    height: 40,
-  },
-
-  userRatingContainer: {
-    position: 'absolute',
-    flexDirection: 'row',
-    bottom: 20,
-    left: 13,
-    zIndex: 2,
-  },
-  userRatingWrap: {
-    backgroundColor: 'black',
-    opacity: 0.8,
-    borderWidth: 1,
-    borderColor: 'tomato',
-    marginRight: 10,
-    borderTopEndRadius: 10,
-    borderBottomStartRadius: 10,
-    alignItems: 'center',
-    justifyContent: 'center',
-    width: 80,
-    height: 60,
-  },
-  userRatingText: {
-    marginLeft: 5,
-    color: 'tomato',
-  },
-  userRating: {
-    marginLeft: 5,
-    color: 'tomato',
-  },
-  numberOfLikesWrap: {
-    backgroundColor: 'black',
-    borderTopEndRadius: 10,
-    borderBottomStartRadius: 10,
-    opacity: 0.8,
-    borderWidth: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-    borderColor: 'whitesmoke',
-    width: 80,
-    height: 60,
-  },
-  numberOfLikesText: {
-    marginLeft: 5,
-    color: 'whitesmoke',
-  },
-  numberOfLikes: {
-    marginLeft: 5,
-    color: 'whitesmoke',
-  },
   movieWrap: {
     marginTop: 13,
     paddingLeft: 13,
     paddingRight: 13,
   },
-  title: {
-    color: 'whitesmoke',
-    fontWeight: 'bold',
-    fontSize: 21,
-  },
+
   userRating: {
     color: 'tomato',
   },
@@ -426,7 +311,6 @@ const styles = StyleSheet.create({
   },
   subTitle: {
     flexDirection: 'row',
-    marginTop: 1,
   },
   ratingGrade: {
     color: 'gray',
