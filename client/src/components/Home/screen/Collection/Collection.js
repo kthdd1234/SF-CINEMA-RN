@@ -15,7 +15,8 @@ const Collection = ({ route }) => {
 
 const StyledCollection = styled.View`
   flex: 1;
-  padding: 10px;
+  padding-top: 20px;
+  padding-left: 10px;
   background-color: rgb(20, 21, 23);
 `;
 

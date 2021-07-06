@@ -1,4 +1,4 @@
-export const searchKeywordList = [
+export const recommendKeywordList = [
   {
     id: 243,
     titleEng: 'Black Widow',

@@ -4,7 +4,7 @@ import AntDesign from 'react-native-vector-icons/AntDesign';
 import HomeStack from './components/Home/HomeStack';
 import CategoryStack from './components/Category/CategoryStack';
 import AuthStack from './components/Auth/AuthStack';
-import Search from './containers/Search';
+import Search from './components/Search/SearchStack';
 import User from './containers/User';
 
 const Tab = createBottomTabNavigator();

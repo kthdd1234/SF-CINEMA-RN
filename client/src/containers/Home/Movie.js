@@ -1,16 +1,19 @@
 import { connect } from 'react-redux';
-import { setProfile } from '../actions';
-import Movie from '../components/Home/screen/Movie/Movie';
+import { setProfile } from '../../actions';
+import Movie from '../../components/Home/screen/Movie/Movie';
 
 const mapReduxStateToReactProps = ({ userReducer }) => {
+  const { isLogin, profile } = userReducer;
+
   return {
-    profile: userReducer.profile,
+    isLogin: isLogin,
+    profile: profile,
   };
 };
 
 const mapReduxDispatchToReactProps = (dispatch) => {
   return {
-    updateProfileToReduxStore: (profile) => {
+    updateProfile: (profile) => {
       dispatch(setProfile(profile));
     },
   };
