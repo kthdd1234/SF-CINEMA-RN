@@ -4,8 +4,8 @@ import AntDesign from 'react-native-vector-icons/AntDesign';
 import HomeStack from './components/Home/HomeStack';
 import CategoryStack from './components/Category/CategoryStack';
 import AuthStack from './components/Auth/AuthStack';
-import Search from './components/Search/SearchStack';
-import User from './containers/User';
+import SearchStack from './components/Search/SearchStack';
+import UserStack from './containers/User/UserStack';
 
 const Tab = createBottomTabNavigator();
 
@@ -37,7 +37,7 @@ const defaultScreens = [
   },
   {
     name: '검색',
-    component: Search,
+    component: SearchStack,
   },
 ];
 
@@ -54,15 +54,11 @@ const BottomTab = ({ isLogin }) => {
       })}
       tabBarOptions={tabBarOptions}
     >
-      {defaultScreens.map((screen, screenIdx) => (
-        <Tab.Screen
-          key={screenIdx}
-          name={screen.name}
-          component={screen.component}
-        />
+      {defaultScreens.map(({ name, component }, screenIdx) => (
+        <Tab.Screen key={screenIdx} name={name} component={component} />
       ))}
       {isLogin ? (
-        <Tab.Screen name='마이페이지' component={User} />
+        <Tab.Screen name='마이페이지' component={UserStack} />
       ) : (
         <Tab.Screen name='로그인/가입' component={AuthStack} />
       )}

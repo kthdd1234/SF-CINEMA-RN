@@ -1,5 +1,4 @@
 import { SET_SEARCHING, SET_SEARCH_RESULT } from '../actions';
-// import { searchKeywordList } from '../components/Search/searchKeywordList';
 
 const initialState = {
   searching: false,

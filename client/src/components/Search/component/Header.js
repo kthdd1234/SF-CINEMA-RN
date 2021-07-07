@@ -4,6 +4,7 @@ import { Input } from 'react-native-elements';
 import { SearchIcon } from '../icon';
 import { search } from '../../../requests';
 import { recommendKeywordList } from '../data';
+import styled from 'styled-components/native';
 
 const Header = ({ setSearch, searchResult }) => {
   useEffect(() => {
@@ -21,20 +22,24 @@ const Header = ({ setSearch, searchResult }) => {
     }
   };
 
+  const { leftIcon, container, inputContainer, input } = styles;
+
   return (
-    <Input
+    <SearchBar
       autoFocus={true}
       selectionColor='red'
       placeholder='제목, 감독, 배우로 검색'
       leftIcon={SearchIcon}
+      leftIconContainerStyle={leftIcon}
+      containerStyle={container}
+      inputContainerStyle={inputContainer}
+      inputStyle={input}
       onChangeText={onChangeText}
-      leftIconContainerStyle={styles.leftIcon}
-      inputContainerStyle={styles.inputContainer}
-      containerStyle={styles.container}
-      inputStyle={styles.input}
     />
   );
 };
+
+const SearchBar = styled(Input)``;
 
 const styles = StyleSheet.create({
   container: {

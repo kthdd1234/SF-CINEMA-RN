@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import User from '../components/User';
+import UserStack from '../../components/User/UserStack';
 
 const mapReduxStateToReactProps = ({ userReducer }) => {
   return {
@@ -7,4 +7,4 @@ const mapReduxStateToReactProps = ({ userReducer }) => {
   };
 };
 
-export default connect(mapReduxStateToReactProps)(User);
+export default connect(mapReduxStateToReactProps)(UserStack);

@@ -3,13 +3,15 @@ import { Alert } from 'react-native';
 import { InputField, KeepLogined, Btn } from './component';
 import { requestLogin, userProfile } from '../../../requests';
 import { UserIcon, LockIcon } from './icon';
+import { useNavigation } from '@react-navigation/native';
 import styled from 'styled-components/native';
 
-const Login = ({ navigation, dispatchIsLogin, dispatchProfile }) => {
+const Login = ({ dispatchIsLogin, dispatchProfile }) => {
   const [id, setId] = useState('');
   const [password, setPassword] = useState('');
   const [errId, setErrId] = useState('');
   const [errPassword, setErrPassword] = useState('');
+  const { navigate } = useNavigation();
 
   const handleInputErrorMessage = (inputId, inputPassword) => {
     if (inputId !== null) {
@@ -48,7 +50,7 @@ const Login = ({ navigation, dispatchIsLogin, dispatchProfile }) => {
           Alert.alert(null, '로그인이 완료되었습니다 :)');
           dispatchIsLogin(true);
           dispatchProfile(profile);
-          navigation.navigate('Home');
+          navigate('Main');
         } catch (error) {
           Alert.alert(null, '아이디와 비밀번호가 정확하지 않습니다.');
           return console.log('로그인 에러 -> ', error);
@@ -83,10 +85,7 @@ const Login = ({ navigation, dispatchIsLogin, dispatchProfile }) => {
       />
       <KeepLogined />
       <Btn title='로그인 하기' onPress={handleLoginToggle} />
-      <Btn
-        title='회원가입 하기'
-        onPress={() => navigation.navigate('SignUp')}
-      />
+      <Btn title='회원가입 하기' onPress={() => navigate('SignUp')} />
     </StyledLogin>
   );
 };

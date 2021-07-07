@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import Save from '../components/User/Save';
+import Save from '../../components/User/screen/Save';
 
 const mapReduxStateToReactProps = ({ userReducer }) => {
   return {
