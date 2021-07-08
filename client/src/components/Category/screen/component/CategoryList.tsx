@@ -1,25 +1,26 @@
 import React from 'react';
-import { StyleSheet, View, FlatList } from 'react-native';
+import { FlatList } from 'react-native';
 import Item from './Item';
+import styled from 'styled-components/native'
 
 const CategoryList = ({ data }) => {
   return (
-    <View style={styles.container}>
+    <StyledCategoryList>
       <FlatList
         data={data}
         renderItem={({ item }) => <Item item={item} />}
         keyExtractor={(item) => item.key}
       />
-    </View>
+    </StyledCategoryList>
   );
 };
 
-const styles = StyleSheet.create({
-  container: {
-    backgroundColor: 'rgb(20,21,23)',
-    paddingLeft: 2,
-    paddingRight: 2,
-  },
-});
+const { View }: any = styled;
+
+const StyledCategoryList = View`
+  padding-left: 2px;
+  padding-right: 2px;
+  background-color: rgb(20,21,23);
+`
 
 export default CategoryList;

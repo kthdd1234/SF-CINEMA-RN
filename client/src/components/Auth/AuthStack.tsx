@@ -1,12 +1,12 @@
 import React from 'react';
-import { createStackNavigator } from '@react-navigation/stack';
+import { createStackNavigator, StackNavigationOptions } from '@react-navigation/stack';
 import Login from '../../containers/Auth/Login';
 import Logo from '../Home/screen/Main/component/Logo';
 
-const { Navigator, Screen } = createStackNavigator();
+const { Navigator, Screen, } = createStackNavigator();
 
-const options = {
-  headerTitle: (props) => <Logo {...props} />,
+const options: StackNavigationOptions = {
+  headerTitle: (props: any) => <Logo {...props} />,
   headerStyle: { backgroundColor: 'black' },
   headerTintColor: '#fff',
   headerTitleStyle: { fontWeight: 'bold' },

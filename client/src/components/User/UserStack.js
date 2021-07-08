@@ -2,7 +2,7 @@ import React from 'react';
 import { StyleSheet } from 'react-native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { Button } from 'react-native-elements';
-import { SettingIcon } from './icon';
+import { SettingIcon } from './screen/icon';
 import User from './screen/User';
 
 const { Navigator, Screen } = createStackNavigator();

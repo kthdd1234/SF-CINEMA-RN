@@ -2,7 +2,7 @@ import React from 'react';
 import { StyleSheet, Image } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { Button } from 'react-native-elements';
-import { contents } from '../../../requests';
+import { contents } from '../../../Home/screen/Movie/request';
 import styled from 'styled-components';
 
 const Item = ({ item }) => {

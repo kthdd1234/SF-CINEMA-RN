@@ -1,10 +1,10 @@
 import React from 'react';
-import { createStackNavigator } from '@react-navigation/stack';
+import { createStackNavigator, StackNavigationOptions } from '@react-navigation/stack';
 import CategoryTab from './screen/CategoryTab';
 
 const { Navigator, Screen } = createStackNavigator();
 
-const options = {
+const options: StackNavigationOptions = {
   title: '카테고리',
   headerStyle: {
     backgroundColor: 'black',

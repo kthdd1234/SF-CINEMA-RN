@@ -5,34 +5,35 @@ import { SaveLoginIcon, CheckIcon } from '../icon';
 
 const KeepLogined = () => {
   const [checked, setChecked] = useState(false);
+  const { titleFill, titleOut, containerStyle, buttonStyle } = styles
 
   return (
     <Button
       title='로그인 상태 유지'
       icon={checked ? <CheckIcon /> : <SaveLoginIcon />}
-      titleStyle={checked ? styles.keepLoginedFill : styles.keepLoginedOut}
-      containerStyle={styles.keepLoginedContainer}
-      buttonStyle={styles.keepLoginedButton}
+      titleStyle={checked ? titleFill : titleOut}
+      containerStyle={containerStyle}
+      buttonStyle={buttonStyle}
       onPress={() => setChecked(!checked)}
     />
   );
 };
 
 const styles = StyleSheet.create({
-  keepLoginedOut: {
+  titleOut: {
     color: 'gray',
     fontWeight: 'bold',
     paddingLeft: 5,
   },
-  keepLoginedFill: {
+  titleFill: {
     color: 'tomato',
     fontWeight: 'bold',
     paddingLeft: 5,
   },
-  keepLoginedContainer: {
+  containerStyle: {
     flexDirection: 'row',
   },
-  keepLoginedButton: {
+  buttonStyle: {
     backgroundColor: 'rgb(20, 21, 23)',
   },
 });

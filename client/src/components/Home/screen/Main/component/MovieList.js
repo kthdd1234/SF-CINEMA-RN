@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { StyleSheet, ActivityIndicator } from 'react-native';
+import { StyleSheet, ActivityIndicator, View, Text } from 'react-native';
 import { Button } from 'react-native-elements';
 import { Down } from '../../Movie/icon';
 import styled from 'styled-components/native';
@@ -14,7 +14,7 @@ const MovieList = ({ item }) => {
       {movieList.length ? (
         <ListContainer>
           <ListTitle>
-            {icon} {listTitle}
+            <Title>{listTitle}</Title>
           </ListTitle>
           <List movieList={viewmore ? movieList : movieList.slice(0, 4)} />
           {viewmore ? null : (
@@ -45,8 +45,13 @@ const ListContainer = styled.View``;
 const ListTitle = styled.Text`
   margin-bottom: 10px;
   color: white;
-  font-size: 18px;
   font-weight: bold;
+`;
+
+const Title = styled.Text`
+  margin-bottom: 5px;
+  margin-left: 5px;
+  font-size: 18px;
 `;
 
 const Viewmore = styled(Button)``;

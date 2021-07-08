@@ -3,24 +3,26 @@ import { StyleSheet } from 'react-native';
 import { Button } from 'react-native-elements';
 
 const Btn = ({ title, onPress }) => {
+  const { buttonStyle, titleStyle } = styles;
+
   return (
     <Button
       title={title}
       onPress={onPress}
-      buttonStyle={styles.btn}
-      titleStyle={styles.btnTitle}
+      buttonStyle={buttonStyle}
+      titleStyle={titleStyle}
     />
   );
 };
 
 const styles = StyleSheet.create({
-  btn: {
+  buttonStyle: {
     margin: 5,
     marginLeft: 10,
     marginRight: 10,
     backgroundColor: 'red',
   },
-  btnTitle: {
+  titleStyle: {
     color: 'whitesmoke',
     fontWeight: 'bold',
   },

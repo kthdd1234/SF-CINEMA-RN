@@ -1,7 +1,8 @@
 import React, { useCallback, useState } from 'react';
 import { Alert } from 'react-native';
 import { InputField, KeepLogined, Btn } from './component';
-import { requestLogin, userProfile } from '../../../requests';
+import { reqLogin } from './request';
+import { reqProfile } from '../../User/screen/request';
 import { UserIcon, LockIcon } from './icon';
 import { useNavigation } from '@react-navigation/native';
 import styled from 'styled-components/native';
@@ -13,7 +14,7 @@ const Login = ({ dispatchIsLogin, dispatchProfile }) => {
   const [errPassword, setErrPassword] = useState('');
   const { navigate } = useNavigation();
 
-  const handleInputErrorMessage = (inputId, inputPassword) => {
+  const handleInputErrorMessage = (inputId: string, inputPassword: string) => {
     if (inputId !== null) {
       inputId !== '' ? setErrId('') : setErrId('아이디를 입력해주세요.');
     }
@@ -44,8 +45,8 @@ const Login = ({ dispatchIsLogin, dispatchProfile }) => {
     if (id !== '' && password !== '') {
       const communicateServer = async () => {
         try {
-          const { accessToken } = await requestLogin(id, password);
-          const profile = await userProfile(accessToken);
+          const { accessToken } = await reqLogin(id, password);
+          const profile = await reqProfile(accessToken);
 
           Alert.alert(null, '로그인이 완료되었습니다 :)');
           dispatchIsLogin(true);
@@ -90,7 +91,9 @@ const Login = ({ dispatchIsLogin, dispatchProfile }) => {
   );
 };
 
-const StyledLogin = styled.View`
+const { View }: any = styled;
+
+const StyledLogin = View`
   flex: 1;
   justify-content: center;
   padding-left: 10px;

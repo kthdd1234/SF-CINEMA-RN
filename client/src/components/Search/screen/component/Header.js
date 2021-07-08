@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { StyleSheet } from 'react-native';
 import { Input } from 'react-native-elements';
 import { SearchIcon } from '../icon';
-import { search } from '../../../requests';
+import { search } from '../request';
 import { recommendKeywordList } from '../data';
 import styled from 'styled-components/native';
 

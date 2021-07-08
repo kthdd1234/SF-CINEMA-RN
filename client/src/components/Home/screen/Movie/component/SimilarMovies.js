@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { genres } from '../../../../../requests';
+import { genres } from '../../../../Category/screen/request';
 import { Bulb1 } from '../icon';
 import List from '../../Main/component/List';
 import styled from 'styled-components/native';

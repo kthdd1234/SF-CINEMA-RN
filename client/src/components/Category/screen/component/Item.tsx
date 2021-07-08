@@ -5,6 +5,7 @@ import { Button } from 'react-native-elements';
 
 const Item = ({ item }) => {
   const { value, method } = item;
+  const { buttonStyle, titleStyle } = styles
   const navigation = useNavigation();
 
   const onPress = async () => {
@@ -19,22 +20,22 @@ const Item = ({ item }) => {
   return (
     <Button
       title={value}
-      buttonStyle={styles.btn}
-      titleStyle={styles.btnTitle}
+      buttonStyle={buttonStyle}
+      titleStyle={titleStyle}
       onPress={onPress}
     />
   );
 };
 
 const styles = StyleSheet.create({
-  btn: {
+  buttonStyle: {
     paddingTop: 10,
     paddingBottom: 10,
     borderColor: 'srgb(48, 47, 47)',
     borderBottomWidth: 1,
     backgroundColor: 'rgb(20, 21, 23)',
   },
-  btnTitle: {
+  titleStyle: {
     flex: 1,
     paddingLeft: 0,
     fontSize: 18,

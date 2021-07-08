@@ -1,6 +1,6 @@
 import React from 'react';
-import { BellsIcon, Search1Icon } from '../icon';
-import Loding from '../component/Loding';
+import { BellsIcon, Search1Icon } from './icon';
+import Loding from './component/Loding';
 import Keywords from '../../../containers/Search/Keywords';
 import styled from 'styled-components/native';
 

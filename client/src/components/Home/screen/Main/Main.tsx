@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { FlatList } from 'react-native';
-import styled from 'styled-components/native';
 import {
   SlackIcon,
   StarIcon,
@@ -11,16 +10,24 @@ import {
   FlashIcon,
 } from './icon';
 import {
-  latestMovies,
   recommendMovies,
   highlyRatedMovies,
-  genres,
+  latestMovies,
   sfMasterpiece,
-} from '../../../../requests';
+} from './request';
+import { genres } from '../../../Category/screen/request';
 import Swiper from './component/Swiper';
 import MovieList from './component/MovieList';
+import styled from 'styled-components/native';
 
-const data = [
+interface IData {
+  listTitle: string;
+  icon: any;
+  req: Function;
+  movieList: Array<any>;
+}
+
+const data: IData[] = [
   {
     listTitle: '추천 영화',
     icon: <SlackIcon />,
@@ -99,7 +106,9 @@ const Main = () => {
   );
 };
 
-const StyledMain = styled.View`
+const { View }: any = styled
+
+const StyledMain = View`
   flex: 1;
   background-color: rgb(20, 21, 23);
 `;

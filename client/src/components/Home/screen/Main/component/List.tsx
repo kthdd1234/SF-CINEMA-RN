@@ -8,7 +8,7 @@ import { useNavigation } from '@react-navigation/native';
 import styled from 'styled-components/native';
 
 const List = ({ movieList }) => {
-  const { push } = useNavigation();
+  const { push }: any = useNavigation();
   const onPress = (movie) => {
     push('Movie', {
       headerTitle: movie.title,

@@ -6,7 +6,7 @@ import {
   saveCancel,
   saveCompleted,
   likeCancel,
-} from '../../../../../requests';
+} from '../request';
 import {
   PlusIcon,
   LikeIcon,

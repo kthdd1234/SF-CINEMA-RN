@@ -8,12 +8,18 @@ const Collection = ({ route }) => {
 
   return (
     <StyledCollection>
-      <FlatList ListEmptyComponent={<List movieList={movieList} />} />
+      <FlatList 
+        data={null} 
+        renderItem={null} 
+        ListEmptyComponent={<List movieList={movieList} />} 
+      />
     </StyledCollection>
   );
 };
 
-const StyledCollection = styled.View`
+const { View } :any = styled;
+
+const StyledCollection = View`
   flex: 1;
   padding-top: 20px;
   padding-left: 10px;

@@ -11,18 +11,19 @@ const InputField = ({
   onChangeText,
   errorMessage,
 }) => {
+  const { labelStyle, inputContainerStyle, inputStyle  } = styles
+
   return (
     <Input
       label={label}
-      labelStyle={styles.label}
+      labelStyle={labelStyle}
       placeholder={placeholder}
       autoFocus={autoFocus}
       leftIcon={leftIcon}
-      leftIconContainerStyle={styles.leftIcon}
       selectionColor='red'
       secureTextEntry={secureTextEntry}
-      inputContainerStyle={styles.inputContainer}
-      inputStyle={styles.input}
+      inputContainerStyle={inputContainerStyle}
+      inputStyle={inputStyle}
       onChangeText={(value) => onChangeText(value)}
       errorMessage={errorMessage}
     />
@@ -30,17 +31,14 @@ const InputField = ({
 };
 
 const styles = StyleSheet.create({
-  label: {
+  labelStyle: {
     color: 'tomato',
   },
-  leftIcon: {
-    color: 'white',
-  },
-  inputContainer: {
+  inputContainerStyle: {
     borderBottomColor: 'red',
     borderBottomWidth: 2,
   },
-  input: {
+  inputStyle: {
     color: 'white',
     paddingLeft: 5,
   },

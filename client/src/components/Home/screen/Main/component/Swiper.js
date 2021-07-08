@@ -1,13 +1,9 @@
 import React, { useCallback } from 'react';
 import { StyleSheet, Image, Dimensions, TouchableOpacity } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
-import {
-  upcomingMovies,
-  latestMovies,
-  highlyRatedMovies,
-  genres,
-  contents,
-} from '../../../../../requests';
+import { highlyRatedMovies, upcomingMovies, latestMovies } from '../request';
+import { contents } from '../../Movie/request';
+import { genres } from '../../../../Category/screen/request';
 import { useNavigation } from '@react-navigation/native';
 import SwiperList from 'react-native-swiper';
 import styled from 'styled-components/native';

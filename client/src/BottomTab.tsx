@@ -7,7 +7,7 @@ import AuthStack from './components/Auth/AuthStack';
 import SearchStack from './components/Search/SearchStack';
 import UserStack from './containers/User/UserStack';
 
-const Tab = createBottomTabNavigator();
+const { Navigator, Screen } = createBottomTabNavigator();
 
 const icons = {
   홈: 'home',
@@ -43,7 +43,7 @@ const defaultScreens = [
 
 const BottomTab = ({ isLogin }) => {
   return (
-    <Tab.Navigator
+    <Navigator
       initialRouteName='Home'
       screenOptions={({ route }) => ({
         tabBarIcon: ({ color, size }) => {
@@ -55,14 +55,14 @@ const BottomTab = ({ isLogin }) => {
       tabBarOptions={tabBarOptions}
     >
       {defaultScreens.map(({ name, component }, screenIdx) => (
-        <Tab.Screen key={screenIdx} name={name} component={component} />
+        <Screen key={screenIdx} name={name} component={component} />
       ))}
       {isLogin ? (
-        <Tab.Screen name='마이페이지' component={UserStack} />
+        <Screen name='마이페이지' component={UserStack} />
       ) : (
-        <Tab.Screen name='로그인/가입' component={AuthStack} />
+        <Screen name='로그인/가입' component={AuthStack} />
       )}
-    </Tab.Navigator>
+    </Navigator>
   );
 };
 

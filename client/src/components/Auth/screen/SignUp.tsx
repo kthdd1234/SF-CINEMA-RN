@@ -1,9 +1,11 @@
 import React, { useState, useCallback } from 'react';
 import { Alert } from 'react-native';
 import { Btn, InputField } from './component';
-import { requestSignUp } from '../../../requests';
+import { reqSignUp } from './request';
 import { UserIcon, LockIcon, UnlockIcon } from './icon';
 import styled from 'styled-components/native';
+
+
 
 function SignUp({ navigation }) {
   const [newId, setNewId] = useState('');
@@ -13,11 +15,7 @@ function SignUp({ navigation }) {
   const [errNewPassword, setErrPassword] = useState('');
   const [errConfirmPassword, setErrConfirmPassword] = useState('');
 
-  const handleInputErrorMessage = (
-    inputId,
-    inputPassword,
-    inputConfirmPassword
-  ) => {
+  const handleInputErrorMessage = (inputId: string, inputPassword: string, inputConfirmPassword: string) => {
     if (inputId !== null) {
       inputId !== '' ? setErrId('') : setErrId('아이디를 입력해주세요.');
     }
@@ -33,7 +31,7 @@ function SignUp({ navigation }) {
     }
   };
 
-  const verifyMatchConfirmPassword = (password, confirmPassword) => {
+  const verifyMatchConfirmPassword = (password: string, confirmPassword: string) => {
     if (password !== confirmPassword) {
       setErrConfirmPassword('비밀번호가 일치 하지 않습니다.');
       return 'not Matched';
@@ -66,7 +64,7 @@ function SignUp({ navigation }) {
     [confirmPassword]
   );
 
-  const hadleSignUpToggle = useCallback(() => {
+  const hadleSignUpToggle = () => {
     if (newId !== '' && newPassword !== '') {
       if (confirmPassword !== '') {
         verifyMatchConfirmPassword(newPassword, confirmPassword) ===
@@ -80,12 +78,12 @@ function SignUp({ navigation }) {
       console.log('실패!');
       return handleInputErrorMessage(newId, newPassword, confirmPassword);
     }
-  });
+  };
 
-  const sendSignUpData = useCallback((newId, newPassword) => {
+  const sendSignUpData = (newId, newPassword) => {
     const communicateServer = async () => {
       try {
-        const result = await requestSignUp(newId, newPassword);
+        const result = await reqSignUp(newId, newPassword);
         if (result === '회원가입 완료!') {
           Alert.alert('회원가입이 완료되었습니다 :)', '로그인 해주세요.');
           navigation.goBack();
@@ -95,7 +93,7 @@ function SignUp({ navigation }) {
       }
     };
     communicateServer();
-  });
+  };
 
   const inputData = [
     {
@@ -159,7 +157,9 @@ function SignUp({ navigation }) {
   );
 }
 
-const StyledSignUp = styled.View`
+const { View }: any = styled;
+
+const StyledSignUp = View`
   flex: 1;
   justify-content: center;
   padding-left: 10px;

@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { StatusBar } from 'react-native';
 import { Provider } from 'react-redux';
-import { createStore } from 'redux';
+import { compose, createStore } from 'redux';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import BottomTab from './containers/BottomTab/BottomTab';
@@ -11,12 +11,28 @@ import Trailer from './components/Home/screen/Movie/component/Trailer';
 import SignUp from './components/Auth/screen/SignUp';
 import reducer from './reducers';
 
-const Stack = createStackNavigator();
+declare global {
+  interface Window {
+    devToolsExtension: typeof compose;
+  }
+}
+
+interface IStackScreens  {
+  name: string;
+  component: any;
+  options: object;
+}
+
+interface IHeaderTitle {
+  headerTitle?: string
+}
 
 const store = createStore(
   reducer,
   window.devToolsExtension ? window.devToolsExtension() : (f) => f
 );
+
+const { Navigator, Screen } = createStackNavigator();
 
 const headerShown = { headerShown: false };
 const headerStyle = {
@@ -29,7 +45,7 @@ const headerStyle = {
   },
 };
 
-const stackScreens = [
+const stackScreens: IStackScreens[] = [
   { name: 'BottomTab', component: BottomTab, options: headerShown },
   { name: 'Movie', component: Movie, options: headerShown },
   { name: 'Collection', component: Collection, options: headerStyle },
@@ -46,23 +62,23 @@ const App = () => {
     <Provider store={store}>
       <NavigationContainer>
         <StatusBar translucent backgroundColor='transparent' />
-        <Stack.Navigator initialRouteName='BottomTab'>
-          {stackScreens.map((screen, screenIdx) => (
-            <Stack.Screen
+        <Navigator initialRouteName='BottomTab'>
+          {stackScreens.map(({ name, component, options }, screenIdx) => (
+            <Screen
               key={screenIdx}
-              name={screen.name}
-              component={screen.component}
-              options={({ route }) =>
-                screen.name === 'Collection'
-                  ? Object.assign(
-                      { title: route.params.headerTitle },
-                      screen.options
-                    )
-                  : screen.options
+              name={name}
+              component={component}
+              options={({ route }) => {
+                const { headerTitle }: IHeaderTitle = route.params || {};
+
+                return name === 'Collection' ? Object.assign( { title: headerTitle }, options )
+                : options
+              }
+        
               }
             />
           ))}
-        </Stack.Navigator>
+        </Navigator>
       </NavigationContainer>
     </Provider>
   );

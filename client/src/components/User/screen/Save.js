@@ -1,8 +1,8 @@
 import React from 'react';
 import { FlatList } from 'react-native';
-import { PlusCircleIcon } from '../icon';
+import { PlusCircleIcon } from './icon';
 import List from '../../Home/screen/Main/component/List';
-import Empty from '../component/Empty';
+import Empty from './component/Empty';
 import styled from 'styled-components/native';
 
 const Save = ({ profile }) => {

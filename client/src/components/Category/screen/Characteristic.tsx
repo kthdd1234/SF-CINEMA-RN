@@ -1,6 +1,7 @@
 import React from 'react';
 import CategoryList from './component/CategoryList';
-import { genres, search } from '../../../requests';
+import { genres } from './request';
+import { search } from '../../Search/screen/request';
 
 const characteristicList = [
   { key: 'space', value: '우주 탐사', method: genres },

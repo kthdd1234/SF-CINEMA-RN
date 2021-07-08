@@ -1,6 +1,6 @@
 import React from 'react';
 import CategoryList from './component/CategoryList';
-import { movieSeries } from '../../../requests';
+import { movieSeries } from './request';
 
 const seriesList = [
   { key: 'The Avengers', value: '어벤져스', method: movieSeries },

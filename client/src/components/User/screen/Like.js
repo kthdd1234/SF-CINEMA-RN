@@ -1,8 +1,8 @@
 import React from 'react';
 import { FlatList } from 'react-native';
-import { Like2Icon } from '../icon';
+import { Like2Icon } from './icon';
 import List from '../../Home/screen/Main/component/List';
-import Empty from '../component/Empty';
+import Empty from './component/Empty';
 import styled from 'styled-components/native';
 
 const Like = ({ profile }) => {
