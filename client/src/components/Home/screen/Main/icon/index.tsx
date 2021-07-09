@@ -1,32 +1,34 @@
 import React from 'react';
-import { Icon } from 'react-native-elements';
+import AntDesignIcons from 'react-native-vector-icons/AntDesign';
+import EntypoIcons from 'react-native-vector-icons/Entypo';
+import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 
 const SlackIcon = () => {
-  return <Icon  type="antdesign" name='slack' size={18} color="whitesmoke" />;
+  return <AntDesignIcons name='slack' size={18} />;
 };
 
 const StarIcon = () => {
-  return <Icon type="antdesign" name='star' size={18} color="whitesmoke" />;
+  return <AntDesignIcons name='star' size={18} />;
 };
 
 const VideoIcon = () => {
-  return <Icon type="entypo" name='video' size={18} color="whitesmoke"/>;
+  return <EntypoIcons name='video' size={18} />;
 };
 
 const CrownIcon = () => {
-  return <Icon type="material-community" name='crown' size={18} color="whitesmoke"/>;
+  return <MaterialCommunityIcons name='crown' size={18} />;
 };
 
 const DingdingIcon = () => {
-  return <Icon type="antdesign" name='dingding' size={18} color="whitesmoke"/>;
+  return <AntDesignIcons name='dingding' size={18} />;
 };
 
 const AlienIcon = () => {
-  return <Icon type="material-community" name='alien' size={18} color="whitesmoke" />;
+  return <MaterialCommunityIcons name='alien' size={18} />;
 };
 
 const FlashIcon = () => {
-  return <Icon type="entypo" name='flash' size={18} color="whitesmoke" />;
+  return <EntypoIcons name='flash' size={18} />;
 };
 
 export {

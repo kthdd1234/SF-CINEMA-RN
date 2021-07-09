@@ -1,17 +1,17 @@
 import React from 'react';
 import { Icon } from 'react-native-elements';
-import { AntDesign } from 'react-native-vector-icons';
+import AntDesignIcons from 'react-native-vector-icons/AntDesign';
 
 const SearchIcon = () => {
   return <Icon name='search' type='font-awesome' color='gray' />;
 };
 
 const BellsIcon = ({ size }) => {
-  return <AntDesign name='bells' size={size} />;
+  return <AntDesignIcons name='bells' size={size} />;
 };
 
 const Search1Icon = ({ size }) => {
-  return <AntDesign name='search1' size={size} />;
+  return <AntDesignIcons name='search1' size={size} />;
 };
 
 export { SearchIcon, BellsIcon, Search1Icon };

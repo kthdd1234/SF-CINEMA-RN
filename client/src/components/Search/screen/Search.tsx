@@ -29,13 +29,15 @@ const Search = ({ searching, searchResult }) => {
   );
 };
 
-const StyledSearch = styled.View`
+const { View, Text }: any = styled;
+
+const StyledSearch = View`
   flex: 1;
   padding: 10px 25px 25px 25px;
   background-color: rgb(20, 21, 23);
 `;
 
-const Title = styled.Text`
+const Title = Text`
   font-size: 17px;
   font-weight: bold;
   color: white;

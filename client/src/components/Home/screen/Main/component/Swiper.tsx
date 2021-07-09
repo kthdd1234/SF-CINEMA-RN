@@ -1,4 +1,4 @@
-import React, { useCallback } from 'react';
+import React from 'react';
 import { StyleSheet, Image, Dimensions, TouchableOpacity } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
 import { highlyRatedMovies, upcomingMovies, latestMovies } from '../request';
@@ -63,17 +63,18 @@ const swiperMovieList = [
 
 const Swiper = () => {
   const navigation = useNavigation();
+  const { swiperStyle, paginationStyle } = styles;
 
-  const onPressSwiperImage = useCallback((sub, req) => {
-    const { push, navigate } = navigation;
-    const navigateMovie = (movie) => {
+  const onPressSwiperImage = (sub: string, req: Function) => {
+    const { push, navigate }: any = navigation;
+    const navigateMovie = (movie: object) => {
       push('Movie', {
         headerTitle: sub,
         movie: movie,
       });
     };
 
-    const navigateCollection = (movieList) => {
+    const navigateCollection = (movieList: Array<any>) => {
       navigate('Collection', {
         headerTitle: sub,
         movieList: movieList,
@@ -81,7 +82,7 @@ const Swiper = () => {
     };
 
     const getServerData = async () => {
-      let getData;
+      let getData: Array<any>;
       if (sub === '원더우먼 1984') {
         getData = await req(245);
         navigateMovie(getData);
@@ -97,12 +98,14 @@ const Swiper = () => {
       }
     };
     getServerData();
-  }, []);
+  };
+
+
 
   return (
     <SwiperList
-      style={styles.swiper}
-      paginationStyle={styles.pagination}
+      style={swiperStyle}
+      paginationStyle={paginationStyle}
       dotColor='gray'
       activeDotColor='white'
       showsButtons={false}
@@ -131,6 +134,8 @@ const Swiper = () => {
   );
 };
 
+const { View, Text }: any = styled;
+
 const BackDrop = styled(Image)`
   width: ${width};
   height: 100%;
@@ -144,31 +149,31 @@ const Shadow = styled(LinearGradient)`
   height: 140px;
 `;
 
-const Intro = styled.View`
+const Intro = View`
   position: absolute;
   bottom: 0;
   left: 10px;
   margin-bottom: 40px;
 `;
 
-const Sub = styled.Text`
+const Sub = Text`
   margin-bottom: 5px;
   color: white;
   font-size: 31px;
   font-weight: bold;
 `;
 
-const Desc = styled.Text`
+const Desc = Text`
   color: rgb(222, 218, 209);
   font-size: 15px;
 `;
 
 const styles = StyleSheet.create({
-  swiper: {
+  swiperStyle: {
     position: 'relative',
     height: 570,
   },
-  pagination: {
+  paginationStyle: {
     marginBottom: 18,
     marginRight: 300,
     bottom: 0,

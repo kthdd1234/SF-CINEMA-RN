@@ -1393,10 +1393,10 @@
     "@types/react-native" "*"
     "@types/styled-components" "*"
 
-"@types/styled-components@*", "@types/styled-components@^5.1.10":
-  "integrity" "sha512-g3ZfWlTiyXktASIhcfCicZtqB/fFFnq0a7kPYYxKXNggdrohp8m/9bMmmt3zDvHj2gplWDGCkZByfFnEXfbSWg=="
-  "resolved" "https://registry.npmjs.org/@types/styled-components/-/styled-components-5.1.10.tgz"
-  "version" "5.1.10"
+"@types/styled-components@*", "@types/styled-components@^5.1.11":
+  "integrity" "sha512-u8g3bSw9KUiZY+S++gh+LlURGraqBe3MC5I5dygrNjGDHWWQfsmZZRTJ9K9oHU2CqWtxChWmJkDI/gp+TZPQMw=="
+  "resolved" "https://registry.npmjs.org/@types/styled-components/-/styled-components-5.1.11.tgz"
+  "version" "5.1.11"
   dependencies:
     "@types/hoist-non-react-statics" "*"
     "@types/react" "*"

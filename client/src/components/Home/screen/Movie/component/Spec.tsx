@@ -21,12 +21,14 @@ const Spec = ({ director, actors, genre, releaseDate, nation }) => {
   );
 };
 
-const StyledSpec = styled.View`
+const { View, Text }: any = styled;
+
+const StyledSpec = View`
   margin-top: 10px;
   margin-bottom: 10px;
 `;
 
-const Desc = styled.Text`
+const Desc = Text`
   margin-bottom: 3px;
   color: gray;
 `;

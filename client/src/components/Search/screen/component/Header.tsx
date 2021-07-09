@@ -11,7 +11,7 @@ const Header = ({ setSearch, searchResult }) => {
     searchResult(recommendKeywordList);
   }, []);
 
-  const onChangeText = async (value) => {
+  const onChangeText = async (value: string) => {
     if (!value) {
       setSearch(false);
       searchResult(recommendKeywordList);
@@ -22,7 +22,7 @@ const Header = ({ setSearch, searchResult }) => {
     }
   };
 
-  const { leftIcon, container, inputContainer, input } = styles;
+  const { leftIconContainerStyle, containerStyle, inputContainerStyle, inputStyle } = styles;
 
   return (
     <SearchBar
@@ -30,10 +30,10 @@ const Header = ({ setSearch, searchResult }) => {
       selectionColor='red'
       placeholder='제목, 감독, 배우로 검색'
       leftIcon={SearchIcon}
-      leftIconContainerStyle={leftIcon}
-      containerStyle={container}
-      inputContainerStyle={inputContainer}
-      inputStyle={input}
+      containerStyle={containerStyle}
+      leftIconContainerStyle={leftIconContainerStyle}
+      inputContainerStyle={inputContainerStyle}
+      inputStyle={inputStyle}
       onChangeText={onChangeText}
     />
   );
@@ -42,18 +42,18 @@ const Header = ({ setSearch, searchResult }) => {
 const SearchBar = styled(Input)``;
 
 const styles = StyleSheet.create({
-  container: {
+  containerStyle: {
     top: 5,
   },
-  leftIcon: {
+  leftIconContainerStyle: {
     color: 'white',
   },
-  inputContainer: {
+  inputContainerStyle: {
     borderBottomColor: 'red',
     marginTop: 5,
     borderBottomWidth: 2,
   },
-  input: {
+  inputStyle: {
     color: 'white',
     paddingTop: 5,
     paddingLeft: 5,

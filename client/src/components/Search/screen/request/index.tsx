@@ -5,7 +5,7 @@ const baseURL = axios.create({
 });
 
 /* 키워드 검색 */
-export const search = async (keyword) => {
+export const search = async (keyword: string) => {
   try {
     const { data } = await baseURL.get('/search', {
       params: {

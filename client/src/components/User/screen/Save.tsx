@@ -11,7 +11,7 @@ const Save = ({ profile }) => {
   return (
     <StyledSave>
       {savedMovie.length ? (
-        <FlatList ListEmptyComponent={<List movieList={savedMovie} />} />
+        <FlatList data={null} renderItem={null} ListEmptyComponent={<List movieList={savedMovie} />} />
       ) : (
         <Empty
           icon={<PlusCircleIcon size={80} />}
@@ -22,7 +22,9 @@ const Save = ({ profile }) => {
   );
 };
 
-const StyledSave = styled.View`
+const { View }: any = styled;
+
+const StyledSave = View`
   flex: 1;
   background-color: rgb(20, 21, 23);
   padding-top: 10px;

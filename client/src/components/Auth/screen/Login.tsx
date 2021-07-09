@@ -7,7 +7,12 @@ import { UserIcon, LockIcon } from './icon';
 import { useNavigation } from '@react-navigation/native';
 import styled from 'styled-components/native';
 
-const Login = ({ dispatchIsLogin, dispatchProfile }) => {
+interface ILogin {
+  dispatchIsLogin: Function;
+  dispatchProfile: Function;
+}
+
+const Login = ({ dispatchIsLogin, dispatchProfile }: ILogin) => {
   const [id, setId] = useState('');
   const [password, setPassword] = useState('');
   const [errId, setErrId] = useState('');

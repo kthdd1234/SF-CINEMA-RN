@@ -1,5 +1,5 @@
 import React from 'react';
-import { AntDesign } from 'react-native-vector-icons';
+import AntDesign from 'react-native-vector-icons/AntDesign';
 
 const SettingIcon = ({ size }) => {
   return <AntDesign name='setting' size={size} color='whitesmoke' />;

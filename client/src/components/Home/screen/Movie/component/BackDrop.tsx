@@ -34,7 +34,9 @@ const BackDrop = ({ userRating, numberOfLikes, backDrop }) => {
   );
 };
 
-const StyledBackDrop = styled.View`
+const { View, Text }: any = styled;
+
+const StyledBackDrop = View`
   position: relative;
 `;
 
@@ -43,7 +45,7 @@ const BackDropImg = styled(Image)`
   height: ${hp('35%')};
 `;
 
-const Rating = styled.View`
+const Rating = View`
   position: absolute;
   flex-direction: row;
   left: 13px;
@@ -51,7 +53,7 @@ const Rating = styled.View`
   z-index: 2;
 `;
 
-const Wrapper = styled.View`
+const Wrapper = View`
   justify-content: center;
   align-items: center;
   width: 80px;
@@ -65,7 +67,7 @@ const Wrapper = styled.View`
   opacity: 0.8;
 `;
 
-const Property = styled.Text`
+const Property = Text`
   margin-left: 5px;
   color: ${({ color }) => color};
 `;

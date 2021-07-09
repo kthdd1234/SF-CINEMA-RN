@@ -10,12 +10,14 @@ const Empty = ({ icon, value }) => {
   );
 };
 
-const StyledEmpty = styled.View`
+const { View, Text }: any = styled;
+
+const StyledEmpty = View`
   flex: 1;
   justify-content: center;
   align-items: center;
 `;
-const EmptyValue = styled.Text`
+const EmptyValue = Text`
   margin-top: 15px;
   font-size: 18px;
   color: srgb(48, 47, 47);

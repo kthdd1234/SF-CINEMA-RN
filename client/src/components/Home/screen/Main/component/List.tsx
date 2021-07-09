@@ -7,11 +7,17 @@ import {
 import { useNavigation } from '@react-navigation/native';
 import styled from 'styled-components/native';
 
+interface ITitle {
+  title?: string;
+}
+
 const List = ({ movieList }) => {
   const { push }: any = useNavigation();
-  const onPress = (movie) => {
+  const onPress = (movie: object) => {
+    const { title }: ITitle = movie;
+
     push('Movie', {
-      headerTitle: movie.title,
+      headerTitle: title,
       movie: movie,
     });
   };
@@ -35,27 +41,29 @@ const List = ({ movieList }) => {
           </TouchableOpacity>
         );
       }}
-      keyExtractor={(item) => item.title}
+      keyExtractor={({ title }) => title}
     />
   );
 };
+
+const { View, Image, Text }: any = styled;
 
 const StyledList = styled(FlatList)`
   flex-direction: row;
   flex-wrap: wrap;
 `;
 
-const Content = styled.View`
+const Content = View`
   margin-right: ${wp('1%')};
   margin-bottom: 15px;
 `;
 
-const BackDrop = styled.Image`
+const BackDrop = Image`
   width: ${wp('47%')};
   height: ${hp('17%')};
 `;
 
-const Title = styled.Text`
+const Title = Text`
   font-size: 14px;
   color: rgba(255, 255, 255, 0.8);
 `;

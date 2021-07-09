@@ -11,7 +11,7 @@ const Like = ({ profile }) => {
   return (
     <StyledLike>
       {likedMovie.length ? (
-        <FlatList ListEmptyComponent={<List movieList={likedMovie} />} />
+        <FlatList data={null} renderItem={null} ListEmptyComponent={<List movieList={likedMovie} />} />
       ) : (
         <Empty
           icon={<Like2Icon size={80} />}
@@ -22,7 +22,9 @@ const Like = ({ profile }) => {
   );
 };
 
-const StyledLike = styled.View`
+const { View }: any = styled;
+
+const StyledLike = View`
   flex: 1;
   background-color: rgb(20, 21, 23);
   padding-top: 10px;

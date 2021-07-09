@@ -25,11 +25,13 @@ const SimilarMovies = ({ genre }) => {
   );
 };
 
-const StyledSimilarMovies = styled.View`
+const { View, Text }: any = styled;
+
+const StyledSimilarMovies = View`
   margin-left: 10px;
 `;
 
-const Sub = styled.Text`
+const Sub = Text`
   margin-bottom: 10px;
   color: whitesmoke;
   font-size: 13px;

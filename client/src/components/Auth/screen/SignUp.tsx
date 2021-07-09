@@ -5,8 +5,6 @@ import { reqSignUp } from './request';
 import { UserIcon, LockIcon, UnlockIcon } from './icon';
 import styled from 'styled-components/native';
 
-
-
 function SignUp({ navigation }) {
   const [newId, setNewId] = useState('');
   const [newPassword, setNewPassword] = useState('');

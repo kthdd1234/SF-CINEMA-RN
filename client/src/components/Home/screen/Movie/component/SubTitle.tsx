@@ -11,15 +11,17 @@ const SubTitle = ({ ratingGrade, runtime }) => {
   );
 };
 
-const StyledSubTitle = styled.View`
+const { View, Text }: any = styled;
+
+const StyledSubTitle = View`
   flex-direction: row;
 `;
 
-const Info = styled.Text`
+const Info = Text`
   color: gray;
 `;
 
-const Dot = styled.Text`
+const Dot = Text`
   margin-right: 5px;
   margin-left: 5px;
   color: gray;

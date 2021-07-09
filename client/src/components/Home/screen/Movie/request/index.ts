@@ -5,7 +5,7 @@ const baseURL = axios.create({
 });
 
 /* 현재 영화 */
-const contents = async (movieId) => {
+const contents = async (movieId: number) => {
   try {
     const { data } = await baseURL.get('/contents', {
       params: {
@@ -19,7 +19,7 @@ const contents = async (movieId) => {
 };
 
 /* 저장하기(completed) */
-const saveCompleted = async (userId, movieId) => {
+const saveCompleted = async (userId: number, movieId: number) => {
   try {
     const { data } = await baseURL.post('/save/completed', {
       userId: userId,
@@ -33,7 +33,7 @@ const saveCompleted = async (userId, movieId) => {
 };
 
 /* 저장하기(cancel) */
-const saveCancel = async (userId, movieId) => {
+const saveCancel = async (userId: number, movieId: number) => {
   try {
     const { data } = await baseURL.delete('/save/cancel', {
       data: {
@@ -49,7 +49,7 @@ const saveCancel = async (userId, movieId) => {
 };
 
 /* 재밌어요(completed) */
-const likeCompleted = async (userId, movieId) => {
+const likeCompleted = async (userId: number, movieId: number) => {
   try {
     const { data } = await baseURL.post('/like/completed', {
       userId: userId,
@@ -63,7 +63,7 @@ const likeCompleted = async (userId, movieId) => {
 };
 
 /* 재밌어요(cancel) */
-const likeCancel = async (userId, movieId) => {
+const likeCancel = async (userId: number, movieId: number) => {
   try {
     const { data } = await baseURL.delete('/like/cancel', {
       data: {

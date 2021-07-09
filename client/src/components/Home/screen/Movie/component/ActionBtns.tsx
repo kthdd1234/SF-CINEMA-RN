@@ -48,7 +48,7 @@ const ActionBtns = ({
     actionBtnTitle,
     settingBtn,
     settingContainer,
-  } = styles;
+  }: any = styles;
 
   useEffect(() => {
     if (isLogin) {
@@ -176,7 +176,9 @@ const styles = StyleSheet.create({
   },
 });
 
-const StyledActionBtn = styled.View`
+const { View }: any = styled;
+
+const StyledActionBtn = View`
   flex-direction: row;
   margin-top: 10px;
 `;

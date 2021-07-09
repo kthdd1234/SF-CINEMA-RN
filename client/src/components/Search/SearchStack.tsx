@@ -6,7 +6,7 @@ import Header from '../../containers/Search/Header';
 const { Navigator, Screen } = createStackNavigator();
 
 const options = {
-  headerTitle: (props) => <Header {...props} />,
+  headerTitle: (props: any) => <Header {...props} />,
   headerStyle: { backgroundColor: 'black' },
 };
 

@@ -100,22 +100,24 @@ const Movie = ({ route, isLogin, profile, updateProfile }) => {
   );
 };
 
+const { View, Text }: any = styled;
+
 const StyledMovie = styled(FlatList)`
   flex: 1;
   background-color: rgb(20, 21, 23);
 `;
 
-const MovieInfo = styled.View`
+const MovieInfo = View`
   margin: 10px;
 `;
 
-const Title = styled.Text`
+const Title = Text`
   font-size: 21px;
   font-weight: bold;
   color: whitesmoke;
 `;
 
-const Plot = styled.Text`
+const Plot = Text`
   margin-top: 10px;
   color: darkgray;
   font-size: 15px;

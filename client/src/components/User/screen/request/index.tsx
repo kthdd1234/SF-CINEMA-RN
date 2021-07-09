@@ -5,7 +5,7 @@ const baseURL = axios.create({
 });
 
 /* 프로필 */
-export const reqProfile = async (accessToken) => {
+export const reqProfile = async (accessToken: string) => {
   try {
     const { data } = await baseURL.get('/user/profile', {
       headers: {

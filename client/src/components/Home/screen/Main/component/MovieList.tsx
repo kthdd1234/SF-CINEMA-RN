@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { StyleSheet, ActivityIndicator, View, Text } from 'react-native';
+import { StyleSheet, ActivityIndicator } from 'react-native';
 import { Button } from 'react-native-elements';
 import { Down } from '../../Movie/icon';
 import styled from 'styled-components/native';
@@ -8,21 +8,22 @@ import List from './List';
 const MovieList = ({ item }) => {
   const [viewmore, setViewmore] = useState(false);
   const { listTitle, icon, movieList } = item;
+  const { viewmoreTitleStyle, viewmoreButtonStyle } = style;
 
   return (
     <StyledMovieList>
       {movieList.length ? (
         <ListContainer>
           <ListTitle>
-            <Title>{listTitle}</Title>
+            <Title>{icon} {listTitle}</Title>
           </ListTitle>
           <List movieList={viewmore ? movieList : movieList.slice(0, 4)} />
           {viewmore ? null : (
             <Viewmore
               icon={Down}
               title='더보기'
-              titleStyle={style.title}
-              buttonStyle={style.btn}
+              titleStyle={viewmoreTitleStyle}
+              buttonStyle={viewmoreButtonStyle}
               onPress={() => setViewmore(true)}
             />
           )}
@@ -34,23 +35,23 @@ const MovieList = ({ item }) => {
   );
 };
 
-const StyledMovieList = styled.View`
+const { View, Text }: any = styled;
+
+const StyledMovieList = View`
   padding-top: 15px;
   padding-bottom: 30px;
   padding-left: 10px;
 `;
 
-const ListContainer = styled.View``;
+const ListContainer = View``;
 
-const ListTitle = styled.Text`
+const ListTitle = Text`
   margin-bottom: 10px;
   color: white;
   font-weight: bold;
 `;
 
-const Title = styled.Text`
-  margin-bottom: 5px;
-  margin-left: 5px;
+const Title = Text`
   font-size: 18px;
 `;
 
@@ -65,12 +66,12 @@ const Loding = styled(ActivityIndicator)`
 `;
 
 const style = StyleSheet.create({
-  title: {
+  viewmoreTitleStyle: {
     marginLeft: 5,
     fontSize: 14,
     color: 'gray',
   },
-  btn: {
+  viewmoreButtonStyle: {
     backgroundColor: 'rgb(20, 21, 23)',
   },
 });

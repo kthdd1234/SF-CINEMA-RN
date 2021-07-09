@@ -48,7 +48,9 @@ const User = () => {
   );
 };
 
-const StyledUser = styled.View`
+const { View }: any = styled
+
+const StyledUser = View`
   flex: 1;
   background-color: rgb(20, 21, 23);
 `;
