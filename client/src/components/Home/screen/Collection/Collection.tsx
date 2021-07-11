@@ -3,8 +3,16 @@ import { FlatList } from 'react-native';
 import styled from 'styled-components/native';
 import List from '../Main/component/List';
 
-const Collection = ({ route }) => {
-  const { movieList } = route.params;
+interface ICollection {
+  route: IParmas;
+}
+
+interface IParmas {
+  params: object;
+}
+
+const Collection = ({ route }: ICollection) => {
+  const { movieList }: any = route.params;
 
   return (
     <StyledCollection>

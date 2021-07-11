@@ -1,7 +1,15 @@
 import React from 'react';
 import styled from 'styled-components/native';
 
-const Spec = ({ director, actors, genre, releaseDate, nation }) => {
+interface ISpec {
+  director: string;
+  actors: string;
+  genre: string;
+  releaseDate: number;
+  nation: string;
+}
+
+const Spec = ({ director, actors, genre, releaseDate, nation }: ISpec) => {
   const spec = [
     { desc: `감독: ${director}` },
     { desc: `출연: ${actors}` },

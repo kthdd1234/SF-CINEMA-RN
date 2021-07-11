@@ -3,7 +3,16 @@ import { StyleSheet } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { Button } from 'react-native-elements';
 
-const Item = ({ item }) => {
+interface IItem {
+  item: IProps
+}
+
+interface IProps {
+  value: string;
+  method: Function;
+}
+
+const Item = ({ item }: IItem) => {
   const { value, method } = item;
   const { buttonStyle, titleStyle } = styles
   const navigation = useNavigation();

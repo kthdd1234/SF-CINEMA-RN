@@ -5,16 +5,16 @@ const initialState = {
   profile: {},
 };
 
-const userReducer = (state = initialState, action) => {
-  switch (action.type) {
+const userReducer = (state = initialState, { type, isLogin, profile }) => {
+  switch (type) {
     case SET_ISLOGIN:
       return Object.assign({}, state, {
-        isLogin: action.isLogin,
+        isLogin: isLogin,
       });
 
     case SET_PROFILE:
       return Object.assign({}, state, {
-        profile: action.profile,
+        profile: profile,
       });
 
     default:

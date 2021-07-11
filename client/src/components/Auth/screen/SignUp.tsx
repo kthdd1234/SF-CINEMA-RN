@@ -1,17 +1,19 @@
 import React, { useState, useCallback } from 'react';
+import { useNavigation } from '@react-navigation/native';
 import { Alert } from 'react-native';
 import { Btn, InputField } from './component';
 import { reqSignUp } from './request';
 import { UserIcon, LockIcon, UnlockIcon } from './icon';
 import styled from 'styled-components/native';
 
-function SignUp({ navigation }) {
+function SignUp() {
   const [newId, setNewId] = useState('');
   const [newPassword, setNewPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
   const [errNewId, setErrId] = useState('');
   const [errNewPassword, setErrPassword] = useState('');
   const [errConfirmPassword, setErrConfirmPassword] = useState('');
+  const { goBack } = useNavigation();
 
   const handleInputErrorMessage = (inputId: string, inputPassword: string, inputConfirmPassword: string) => {
     if (inputId !== null) {
@@ -84,7 +86,7 @@ function SignUp({ navigation }) {
         const result = await reqSignUp(newId, newPassword);
         if (result === '회원가입 완료!') {
           Alert.alert('회원가입이 완료되었습니다 :)', '로그인 해주세요.');
-          navigation.goBack();
+          goBack();
         }
       } catch (error) {
         return console.log(error);

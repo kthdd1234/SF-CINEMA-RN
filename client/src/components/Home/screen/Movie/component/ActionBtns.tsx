@@ -17,7 +17,21 @@ import {
 } from '../icon';
 import styled from 'styled-components/native';
 
-const alertMessage = (message) => {
+interface IActionBtns {
+  isLogin: boolean;
+  movieId: number;
+  profile: IProfile;
+  setPlaying: Function;
+  updateProfile: Function
+}
+
+interface IProfile {
+  id: number;
+  savedMovie: Array<any>;
+  likedMovie: Array<any>;
+}
+
+const alertMessage = (message: string) => {
   return Alert.alert(
     null,
     message,
@@ -37,7 +51,7 @@ const ActionBtns = ({
   profile,
   setPlaying,
   updateProfile,
-}) => {
+}: IActionBtns) => {
   const [saveVisible, setSaveVisible] = useState(false);
   const [likeVisible, setLikeVisible] = useState(false);
 

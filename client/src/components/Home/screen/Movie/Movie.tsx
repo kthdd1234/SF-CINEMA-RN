@@ -12,11 +12,45 @@ import {
 } from './component';
 import styled from 'styled-components/native';
 
-const Movie = ({ route, isLogin, profile, updateProfile }) => {
+interface IProps {
+  route: any;
+  isLogin: boolean;
+  profile: IProfile;
+  updateProfile: Function;
+};
+
+interface IProfile {
+  id: number;
+  savedMovie: Array<any>;
+  likedMovie: Array<any>;
+}
+
+interface IParams {
+  movie?: IMovie;
+}
+
+interface IMovie {
+  id: number;
+  title: string;
+  genre: string;
+  plot: string;
+  videoId: string;
+  backDrop: string;
+  userRating: number;
+  numberOfLikes: number;
+  ratingGrade: string;
+  runtime: string;
+  director: string;
+  actors: string;
+  releaseDate: number;
+  nation: string;
+}
+
+const Movie = ({ route, isLogin, profile, updateProfile }: IProps) => {
   const [viewmore, setViewmore] = useState(true);
   const [numberOfLines, setNumberOfLines] = useState(3);
   const [playing, setPlaying] = useState(false);
-  const { movie } = route.params;
+  const { movie }: IParams = route.params;
   const {
     id,
     title,

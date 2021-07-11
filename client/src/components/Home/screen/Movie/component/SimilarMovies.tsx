@@ -4,7 +4,11 @@ import { Bulb1 } from '../icon';
 import List from '../../Main/component/List';
 import styled from 'styled-components/native';
 
-const SimilarMovies = ({ genre }) => {
+interface IGenre {
+  genre: string;
+}
+
+const SimilarMovies = ({ genre }: IGenre) => {
   const [similarMovies, setSimilarMovies] = useState([]);
 
   useEffect(() => {

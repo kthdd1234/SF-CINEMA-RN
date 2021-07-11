@@ -3,12 +3,15 @@ import { FlatList } from 'react-native';
 import Item from './Item';
 import styled from 'styled-components';
 
+interface IKeywords {
+  searchResult: Array<any>
+}
 
-const Keywords = ({ searchResult }) => {
+const Keywords = ({ searchResult }: IKeywords) => {
   return (
     <StyledKeywords
       data={searchResult}
-      renderItem={({ item }) => <Item item={item} />}
+      renderItem={({ item }: any) => <Item item={item} />}
       keyExtractor={({ titleEng }: any) => titleEng}
     />
   );

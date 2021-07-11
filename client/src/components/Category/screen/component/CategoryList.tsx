@@ -1,9 +1,13 @@
 import React from 'react';
 import { FlatList } from 'react-native';
 import Item from './Item';
-import styled from 'styled-components/native'
+import styled from 'styled-components/native';
 
-const CategoryList = ({ data }) => {
+interface ICategoryList {
+  data: Array<any>
+}
+
+const CategoryList = ({ data }: ICategoryList) => {
   return (
     <StyledCategoryList>
       <FlatList

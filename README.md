@@ -22,13 +22,14 @@
 
 ## ⚙ 사용 기술
 
-<img width="943" alt="스크린샷 2021-01-19 오후 2 01 09" src="https://user-images.githubusercontent.com/58875822/104989990-fd6ae980-5a5e-11eb-802b-de684638ac3c.png">
+<img width="1107" alt="스크린샷 2021-07-09 오후 10 05 14" src="https://user-images.githubusercontent.com/58875822/125082130-ccac6880-e101-11eb-9141-ed74dcb19b1c.png">
 
 ### Front-End
 
 - React-Native 와 Expo 를 이용한 안드로이드 어플리케이션 제작
 - React-Navigation 을 이용하여 어플리케이션 내 화면 전환 및 페이지 경로 설계
-- 어플리케이션 전반에 사용되는 프로필 정보, 영화 정보등 상태관리가 필요한 데이터를 위해 Redux 를 사용
+- TypeScript 를 도입하여 디버깅, 개발 효율 개선
+- styled-components 를 사용하여 컴포넌트 스타일링
 
 ### Back-End
 

@@ -7,11 +7,15 @@ import {
 import { useNavigation } from '@react-navigation/native';
 import styled from 'styled-components/native';
 
+interface IList {
+  movieList: Array<any>
+}
+
 interface ITitle {
   title?: string;
 }
 
-const List = ({ movieList }) => {
+const List = ({ movieList }: IList) => {
   const { push }: any = useNavigation();
   const onPress = (movie: object) => {
     const { title }: ITitle = movie;

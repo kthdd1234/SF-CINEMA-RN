@@ -5,7 +5,15 @@ import List from '../../Home/screen/Main/component/List';
 import Empty from './component/Empty';
 import styled from 'styled-components/native';
 
-const Save = ({ profile }) => {
+interface IProfile {
+  profile : IProps;
+}
+
+interface IProps {
+  savedMovie: Array<any>
+}
+
+const Save = ({ profile }: IProfile) => {
   const { savedMovie } = profile;
 
   return (

@@ -1,7 +1,12 @@
 import React from 'react';
 import styled from 'styled-components/native';
 
-const Empty = ({ icon, value }) => {
+interface IEmpty {
+  icon: any;
+  value: string;
+}
+
+const Empty = ({ icon, value }: IEmpty) => {
   return (
     <StyledEmpty>
       {icon}

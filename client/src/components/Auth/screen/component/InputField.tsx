@@ -2,6 +2,16 @@ import React from 'react';
 import { StyleSheet } from 'react-native';
 import { Input } from 'react-native-elements';
 
+interface IInputField {
+  label: string;
+  placeholder: string;
+  autoFocus: boolean;
+  leftIcon: any;
+  secureTextEntry: boolean;
+  onChangeText: Function;
+  errorMessage: string
+}
+
 const InputField = ({
   label,
   placeholder,
@@ -10,8 +20,8 @@ const InputField = ({
   secureTextEntry,
   onChangeText,
   errorMessage,
-}) => {
-  const { labelStyle, inputContainerStyle, inputStyle  } = styles
+}: IInputField) => {
+  const { labelStyle, inputContainerStyle, inputStyle } = styles
 
   return (
     <Input

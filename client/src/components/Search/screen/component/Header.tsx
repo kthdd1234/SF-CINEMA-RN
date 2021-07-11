@@ -6,7 +6,12 @@ import { search } from '../request';
 import { recommendKeywordList } from '../data';
 import styled from 'styled-components/native';
 
-const Header = ({ setSearch, searchResult }) => {
+interface IHeader {
+  setSearch: Function;
+  searchResult: Function
+}
+
+const Header = ({ setSearch, searchResult }: IHeader) => {
   useEffect(() => {
     searchResult(recommendKeywordList);
   }, []);

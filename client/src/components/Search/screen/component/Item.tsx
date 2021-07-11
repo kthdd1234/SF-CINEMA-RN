@@ -5,7 +5,17 @@ import { Button } from 'react-native-elements';
 import { contents } from '../../../Home/screen/Movie/request';
 import styled from 'styled-components';
 
-const Item = ({ item }) => {
+interface IItem {
+  item: IItemProps
+}
+
+interface IItemProps {
+  id: number; 
+  title: string;
+  backDrop: string;
+}
+
+const Item = ({ item }: IItem) => {
   const { navigate } = useNavigation();
   const { id, title, backDrop } = item;
   const source = {

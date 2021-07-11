@@ -5,7 +5,12 @@ import { heightPercentageToDP as hp } from 'react-native-responsive-screen';
 
 const { width: SCREEN_WIDTH } = Dimensions.get('window');
 
-const Trailer = ({ videoId, playing }) => {
+interface ITrailer {
+  videoId: string;
+  playing: boolean;
+}
+
+const Trailer = ({ videoId, playing }: ITrailer) => {
   return (
     <View>
       <StatusBar hidden={true} />

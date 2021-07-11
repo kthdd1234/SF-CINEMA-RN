@@ -1,8 +1,13 @@
 import React from 'react';
-import { StyleSheet } from 'react-native';
+import { GestureResponderEvent, StyleSheet } from 'react-native';
 import { Button } from 'react-native-elements';
 
-const Btn = ({ title, onPress }) => {
+interface IBtn {
+  title: string;
+  onPress: (event: GestureResponderEvent) => void
+}
+
+const Btn = ({ title, onPress }: IBtn) => {
   const { buttonStyle, titleStyle } = styles;
 
   return (

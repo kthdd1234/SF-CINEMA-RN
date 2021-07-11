@@ -4,7 +4,12 @@ import Loding from './component/Loding';
 import Keywords from '../../../containers/Search/Keywords';
 import styled from 'styled-components/native';
 
-const Search = ({ searching, searchResult }) => {
+interface ISearch {
+  searching: boolean;
+  searchResult: string | Array<any>;
+}
+
+const Search = ({ searching, searchResult }: ISearch) => {
   const { length } = searchResult;
 
   return (

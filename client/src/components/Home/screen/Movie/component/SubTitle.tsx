@@ -1,7 +1,12 @@
 import React from 'react';
 import styled from 'styled-components/native';
 
-const SubTitle = ({ ratingGrade, runtime }) => {
+interface ISubTitle {
+  ratingGrade: string;
+  runtime: string;
+}
+
+const SubTitle = ({ ratingGrade, runtime }: ISubTitle) => {
   return (
     <StyledSubTitle>
       <Info>{ratingGrade}</Info>

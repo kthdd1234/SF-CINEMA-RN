@@ -5,16 +5,16 @@ const initialState = {
   searchResult: [],
 };
 
-const searchReducer = (state = initialState, action) => {
-  switch (action.type) {
+const searchReducer = (state = initialState, { type, searching, searchResult }) => {
+  switch (type) {
     case SET_SEARCHING:
       return Object.assign({}, state, {
-        searching: action.searching,
+        searching: searching,
       });
 
     case SET_SEARCH_RESULT:
       return Object.assign({}, state, {
-        searchResult: action.searchResult,
+        searchResult: searchResult,
       });
 
     default:

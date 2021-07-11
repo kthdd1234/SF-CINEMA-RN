@@ -5,7 +5,17 @@ import { Down } from '../../Movie/icon';
 import styled from 'styled-components/native';
 import List from './List';
 
-const MovieList = ({ item }) => {
+interface IMovieList {
+  item: IItem
+}
+
+interface IItem {
+  listTitle: string;
+  icon: any;
+  movieList: Array<any>
+}
+
+const MovieList = ({ item }: IMovieList) => {
   const [viewmore, setViewmore] = useState(false);
   const { listTitle, icon, movieList } = item;
   const { viewmoreTitleStyle, viewmoreButtonStyle } = style;

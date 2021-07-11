@@ -5,7 +5,15 @@ import List from '../../Home/screen/Main/component/List';
 import Empty from './component/Empty';
 import styled from 'styled-components/native';
 
-const Like = ({ profile }) => {
+interface IProfile {
+  profile : IProps;
+}
+
+interface IProps {
+  likedMovie: Array<any>
+}
+
+const Like = ({ profile }: IProfile) => {
   const { likedMovie } = profile;
 
   return (
